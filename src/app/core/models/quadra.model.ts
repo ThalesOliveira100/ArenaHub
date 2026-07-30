@@ -12,4 +12,5 @@ export interface Quadra {
   esportes: string[];
   gestorId: number; // FK de usuarios.id
   monitorId: number; // FK de usuario.id
+  imagemUrl?: string;
 }
