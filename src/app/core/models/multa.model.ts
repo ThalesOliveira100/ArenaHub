@@ -11,7 +11,7 @@ export interface Multa {
   ativoImobilizadoId?: number; // PK de ativoImobizado.id
   nomeResponsavel: string;
   motivo: string;
-  data: Date;
+  data: string;
   preco: number;
   status: MultaStatus;
 }

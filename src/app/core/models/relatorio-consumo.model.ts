@@ -5,4 +5,5 @@ export interface RelatorioConsumo {
   mes: number;
   energiaKwh: number;
   aguaM3: number;
+  ocupacaoPercentual: number;
 }

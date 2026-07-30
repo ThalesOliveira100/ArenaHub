@@ -1,12 +1,14 @@
 export enum AtivoImobilCategoria {
   INFRAESTRUTURA = 'INFRAESTRUTURA',
   ELETRONICO = 'ELETRONICO',
-  EQUIPAMENTO_ESPORTIVO = 'EQUIPAMENTO_ESPORTIVO'
+  EQUIPAMENTO_ESPORTIVO = 'EQUIPAMENTO_ESPORTIVO',
 }
 
 export enum AtivoImobilizadoStatus {
-  EXCELENTE = 'EXCELENTE',
+  OTIMO = 'ÓTIMO',
   BOM = 'BOM',
+  REGULAR = 'REGULAR',
+  RUIM = 'RUIM',
   DANIFICADO = 'DANIFICADO'
 }
 
@@ -17,5 +19,7 @@ export interface AtivoImobilizado {
   categoria: AtivoImobilCategoria;
   quantidade: number;
   status: AtivoImobilizadoStatus;
+  aquisicao: string;
+  observacoes?: string;
   preco?: number;
 }
