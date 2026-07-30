@@ -1,0 +1,19 @@
+footer {
+  padding: 1rem;
+  font-size: smaller;
+  display: flex;
+  flex-direction: column;
+}
+
+footer span {
+  color: gray;
+}
+
+.footer--link {
+  width: fit-content;
+  color: gray;
+}
+
+.footer--link:hover {
+  color: black;
+}
