@@ -1,0 +1,28 @@
+.basic-card-content {
+  background-color: var(--card-color, white);
+  border: var(--card-border, solid 2px #224235);
+  width: var(--card-width, 43vw);
+  height: var(--card-height, 25vh);
+  padding: 0.5rem;
+}
+
+.basic-card--header {
+  color: #00b571;
+}
+
+.basic-card--header > mat-icon {
+  font-size: 1.5rem;
+}
+
+.basic-card--title {
+  padding-left: 1rem;
+  font-weight: 500;
+  font-size: var(--card-title-font-size, 1.5rem);
+}
+
+.basic-card--desc {
+  color: var(--card-desc-color, gray);
+  font-size: smaller;
+  display: flex;
+  flex-wrap: wrap;
+}

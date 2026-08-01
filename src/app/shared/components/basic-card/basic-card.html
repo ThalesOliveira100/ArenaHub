@@ -1,0 +1,7 @@
+<mat-card class="basic-card-content">
+  @if (icon() !== '') {
+    <mat-card-header class="basic-card--header"><mat-icon>{{ icon() }}</mat-icon></mat-card-header>
+  }
+  <mat-card-title class="basic-card--title"><p>{{ title() }}</p></mat-card-title>
+  <mat-card-content class="basic-card--desc"><p>{{ desc() }}</p></mat-card-content>
+</mat-card>
