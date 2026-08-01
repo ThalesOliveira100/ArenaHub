@@ -3,6 +3,7 @@ footer {
   font-size: smaller;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 }
 
 footer span {
