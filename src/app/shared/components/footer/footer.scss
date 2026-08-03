@@ -18,3 +18,16 @@ footer span {
 .footer--link:hover {
   color: black;
 }
+
+@media screen and (width >= 768px) {
+  footer{
+    flex-direction: row;
+  }
+}
+
+@media screen and (width >= 1440px) {
+  footer {
+    margin-right: 1rem;
+    padding: 1rem 8rem;
+  }
+}

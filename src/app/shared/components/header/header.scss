@@ -60,3 +60,11 @@ header {
 .spacer {
   flex: 1 1 auto;
 }
+
+@media screen and (width >= 1440px) {
+  header {
+    justify-content: space-around;
+    margin-right: 1rem;
+    padding: 1rem 6rem;
+  }
+}

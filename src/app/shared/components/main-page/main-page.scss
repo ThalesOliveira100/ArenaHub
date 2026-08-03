@@ -1,6 +1,6 @@
 .main-content {
   color: #e1ebe3;
-  padding: 4rem 1rem;
+  padding: 3rem 1rem;
   background-color: #092e20;
 }
 
@@ -70,6 +70,10 @@
   justify-content: start;
   flex-wrap: wrap;
   gap: 0.5rem;
+
+  app-basic-card {
+    width: 43vw;
+  }
 }
 
 .main-explanation {
@@ -88,4 +92,71 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+@media screen and (width >= 768px) {
+  .main-cards {
+    gap: 1rem;
+    app-basic-card {
+      width: 46vw;
+    }
+  }
+
+  .explanation--cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    app-basic-card {
+      width: 30vw;
+    }
+  }
+}
+
+@media screen and (width >= 1024px) {
+  .main-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // gap: 2rem;
+  }
+
+  .main-text {
+    width: 41%;
+  }
+
+  .main-cards {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 50%;
+
+    app-basic-card {
+      width: 20vw;
+      height: 35%;
+    }
+  }
+
+  .explanation--cards {
+    app-basic-card {
+      height: 20%;
+    }
+  }
+}
+
+@media screen and (width >= 1440px) {
+  .main-content {
+    padding: 3rem 8rem;
+  }
+
+  .main-explanation {
+    padding: 3rem 8rem;
+  }
+
+  .explanation--cards {
+    app-basic-card {
+      width: 26vw;
+    }
+  }
+
 }

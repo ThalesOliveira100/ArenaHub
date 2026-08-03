@@ -1,8 +1,7 @@
 .basic-card-content {
   background-color: var(--card-color, white);
   border: var(--card-border, solid 2px #224235);
-  width: var(--card-width, 43vw);
-  height: var(--card-height, 25vh);
+  height: var(--card-height, 100%);
   padding: 0.5rem;
 }
 
@@ -23,6 +22,7 @@
 .basic-card--desc {
   color: var(--card-desc-color, gray);
   font-size: smaller;
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
 }
