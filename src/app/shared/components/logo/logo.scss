@@ -1,0 +1,25 @@
+.header--content-left {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.header--logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: white;
+  font-size: small;
+  background: linear-gradient(45deg,rgba(1, 71, 47, 1) 10%, rgba(0, 160, 101, 1) 100% );
+  padding: 2px;
+  border-radius: 0.7rem;
+}
+
+.header--titulo {
+  font-size: 1rem;
+  color: var(--titulo-color, black);
+}
