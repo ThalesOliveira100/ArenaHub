@@ -1,12 +1,12 @@
-import { Usuario } from './../../../core/models/usuario.model';
-import { contasTeste } from './../../../core/auth/contasTestes';
+import { Usuario } from '../../core/models/usuario.model';
+import { contasTeste } from '../../core/auth/contasTestes';
 import { Component, OnInit, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { Logo } from "../../../shared/components/logo/logo";
+import { Logo } from "../../shared/components/logo/logo";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
