@@ -1,0 +1,161 @@
+.nav-bar {
+  display: none;
+}
+
+.content-auth {
+  padding: 3rem 1rem;
+}
+
+.auth--header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.auth--titulo {
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
+.auth--desc {
+  color: #6f7971;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+}
+
+.input--form {
+  width: 100%;
+  color: #6f7971;
+}
+
+.input--titulo {
+  margin-bottom: 0.5rem;
+}
+
+.form__error {
+  color: red;
+  margin-bottom: 1rem;
+  font-size: medium;
+}
+
+.auth-botao--login {
+  background-color: #007f53;
+  border-radius: 0.5rem;
+}
+
+.auth-examples {
+  font-size: smaller;
+}
+
+.auth-examples--title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #073424;
+}
+
+.examples--contas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.examples--contas > button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: solid #007f53 1px;
+  border-radius: 0.5rem;
+  font-size: 11px;
+  font-weight: 400;
+  color: black;
+  height: fit-content;
+  padding: 0.2rem;
+}
+
+.conta--details {
+  display: flex;
+  flex-direction: column;
+  line-height: 1rem;
+  color: #073424;
+}
+
+.contas--text {
+  color: #6f7971;
+}
+
+.auth-footer > a {
+  color: #6f7971;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: smaller;
+  width: 100%;
+}
+
+@media screen and (width >= 768px) {
+  .content-left {
+    margin: 3rem;
+    padding: 1rem 8rem;
+  }
+}
+
+@media screen and (width >= 1024px) {
+  .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .nav-bar {
+    background-color: #073424;
+    width: 50vw;
+    padding: 3rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .nav-bar--text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-size: 16px;
+  }
+
+  .text-titulo {
+    width: 100%;
+    font-weight: 500;
+    line-height: 2rem;
+    font-size: 2em;
+  }
+
+  .text-desc, footer {
+    color: #DEDEDE;
+  }
+
+  .content-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50vw;
+    margin: 3rem 0;
+    padding: 0 3rem;
+  }
+}
+
+@media screen and (width >= 1440px) {
+  .text-desc {
+    width: 80%;
+  }
+
+  .content-auth {
+    padding: 3rem 8rem;
+  }
+}

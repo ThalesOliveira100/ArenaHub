@@ -1,0 +1,112 @@
+<div class="content">
+  <div class="nav-bar">
+    <app-logo [tituloColor]="'white'"/>
+
+    <div class="nav-bar--text">
+      <h1 class="text-titulo">Toda a operação das quadras em um só painel.</h1>
+      <p class="text-desc">Horários, patrimônio, eventos, multas e solicitações com controle de acesso por perfil.</p>
+    </div>
+
+    <footer>Autenticação JWT mockada para demonstração</footer>
+  </div>
+  <div class="content-left">
+    <div class="content-auth">
+      <header class="auth--header">
+        <h2 class="auth--titulo">Entrar</h2>
+        <p class="auth--desc">Use suas credenciais institucionais.</p>
+      </header>
+
+      <form [formGroup]="authForm" (ngSubmit)="realizarLogin()" class="inputs">
+        <div class="input-email">
+          <p class="input--titulo">E-mail</p>
+          <p>
+            <mat-form-field class="input--form" appearance="outline">
+              <mat-label >Preencha com o seu e-mail</mat-label>
+              <input
+                matInput
+                [required]="true"
+                id="email"
+                formControlName="email"
+                placeholder="nome@arenahub.gov.br"
+                type="email"
+                autocomplete="email"
+
+              >
+            </mat-form-field>
+          </p>
+        </div>
+
+        <div class="input-senha">
+          <p class="input--titulo">Senha</p>
+          <p>
+            <mat-form-field class="input--form" appearance="outline">
+              <mat-label>Preencha com a sua senha</mat-label>
+              <input
+                matInput
+                id="senha"
+                formControlName="senha"
+                [required]="true"
+                [type]="escondeSenha() ? 'password' : 'text'"
+                placeholder="••••••"
+              />
+              <button
+                matIconButton
+                matSuffix
+                type="button"
+                (click)="esconderSenha($event)"
+                [attr.aria-label]="'Esconder senha'"
+                [attr.aria-pressed]="escondeSenha()"
+              >
+                <mat-icon>{{escondeSenha() ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+          </p>
+          @if (senha?.invalid && senha?.touched) {
+            <div class="form__error">
+              @if (senha?.hasError('required')) {
+                <span>A senha é obrigatória.</span>
+              }
+              @if (senha?.hasError('minlength')) {
+                <span>A senha deve ter pelo menos 6 caracteres.</span>
+              }
+            </div>
+          }
+        </div>
+
+        <button
+          matButton="filled"
+          class="auth-botao--login"
+          [disabled]="authForm.invalid"
+          >Entrar</button>
+      </form>
+
+      <section class="auth-examples">
+        <mat-accordion>
+            <mat-expansion-panel [hideToggle]="false">
+                <mat-expansion-panel-header class="auth-examples--title">Contas de demonstração</mat-expansion-panel-header>
+                <div class="examples--contas">
+                  @for (conta of _contasTeste; track conta.id) {
+                    <button matButton="outlined"
+                    (click)="preencherContasExemplos(conta.email, conta.senha)"
+                    >
+                      <div class="conta--details">
+                        <p class="contas--nome">{{ conta.nome }}</p>
+                        <p class="contas--text">{{ conta.email }}</p>
+                        <p class="contas--text">senha: {{ conta.senha }}</p>
+                      </div>
+                    </button>
+                  }
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+      </section>
+
+      <br>
+
+      <footer class="auth-footer">
+        <a href="/quadras">Sou do público - quero ver as quadras</a>
+      </footer>
+    </div>
+  </div>
+</div>
+
