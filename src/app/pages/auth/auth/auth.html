@@ -61,12 +61,12 @@
               </button>
             </mat-form-field>
           </p>
-          @if (senha?.invalid && senha?.touched) {
+          @if (senha?.invalid && senha.touched) {
             <div class="form__error">
-              @if (senha?.hasError('required')) {
+              @if (senha.hasError('required')) {
                 <span>A senha é obrigatória.</span>
               }
-              @if (senha?.hasError('minlength')) {
+              @if (senha.hasError('minlength')) {
                 <span>A senha deve ter pelo menos 6 caracteres.</span>
               }
             </div>
