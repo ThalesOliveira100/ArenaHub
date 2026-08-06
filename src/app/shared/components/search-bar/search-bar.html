@@ -1,0 +1,19 @@
+<mat-form-field class="search-bar" appearance="outline">
+  <mat-icon matIconPrefix>search</mat-icon>
+
+  <input
+    placeholder={{label()}}
+    matInput
+    type="text"
+    [(ngModel)]="value"
+  >
+
+  @if (value()) {
+    <button mat-icon-button matSuffix (click)="value.set('')">
+      <mat-icon>close</mat-icon>
+    </button>
+  }
+</mat-form-field>
+
+
+
