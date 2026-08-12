@@ -1,0 +1,60 @@
+.card-content {
+  margin: 1rem;
+}
+
+.card-image {
+  height: auto;
+  max-height: 10rem;
+  max-width: 100%;
+  // object-fit: scale-down;
+}
+
+mat-card-title {
+  font-size: medium;
+  font-weight: 600;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-content__address {
+  display: flex;
+  align-items: center;
+  color: #6e6e6e;
+  font-size: small;
+}
+
+.card-content__address > p {
+  height: fit-content;
+}
+
+.card-content__esportes {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.card_content__esporte {
+  background-color: #e6f3e8;
+  border-radius: 0.5rem;
+  color: #053a27;
+  padding: 0.5vh 2vh;
+  line-height: auto;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+mat-card-actions {
+  padding: 1rem;
+}
+
+mat-card-actions > a {
+  background-color: #053a27;
+  font-weight: 400;
+  border-radius: 0.5rem;
+  width: 100%;
+}

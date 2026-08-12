@@ -1,0 +1,27 @@
+<div class="card-content">
+  <mat-card appearance="outlined">
+
+    <img mat-card-image class="card-image" src="{{arenaImage}}" alt="Imagem da quadra {{arenaName}}">
+
+    <mat-card-header>
+      <mat-card-title>{{arenaName}}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="card-content__address">
+        <mat-icon matPrefix>location_on</mat-icon>
+        <p>{{arenaAddress}}</p>
+      </div>
+
+      <div class="card-content__esportes">
+        @for (esporte of arenaSports; track $index) {
+          <span class="card_content__esporte">{{esporte}} </span>
+        }
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <a matButton="filled" href="/quadras/{{arenaId}}">Ver detalhes</a>
+    </mat-card-actions>
+  </mat-card>
+</div>
