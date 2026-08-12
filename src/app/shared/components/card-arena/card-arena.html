@@ -1,7 +1,10 @@
 <div class="card-content">
   <mat-card appearance="outlined">
-
-    <img mat-card-image class="card-image" src="{{arenaImage}}" alt="Imagem da quadra {{arenaName}}">
+    @if (arenaImage === undefined) {
+      <img mat-card-image class="card-image" src="arenaNotFound.png" alt="Imagem da quadra {{arenaName}} não localizada">
+    } @else {
+      <img mat-card-image class="card-image" src="{{arenaImage}}" alt="Imagem da quadra {{arenaName}}">
+    }
 
     <mat-card-header>
       <mat-card-title>{{arenaName}}</mat-card-title>
