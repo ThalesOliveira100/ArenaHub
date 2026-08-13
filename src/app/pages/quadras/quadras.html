@@ -1,0 +1,50 @@
+<div class="quadras-content">
+  <header class="quadras-header">
+    <app-logo />
+    <a
+      matButton="outlined"
+      class="quadras-header__btn"
+      href="/login">Acesso da equipe</a>
+  </header>
+
+  <mat-divider/>
+
+  <div class="quadras-main-form">
+    <div class="main-form__text">
+      <h1>Quadras esportivas</h1>
+      <p>{{quadrasFiltradas().length}} quadras encontradas • escolha uma para ver horários e solicitar reserva.</p>
+    </div>
+
+    <div class="main-form__inputs">
+      <app-search-bar
+        label="Buscar por nome, endereço ou modalidade"
+        width="100%"
+        [(value)]="termoBusca"
+      />
+
+      <app-selection-bar
+        label="Todas as regiões"
+        [options]="getRegioesPorQuadra()"
+        width="100%"
+        [(value)]="regiaoSelecionada"
+      />
+    </div>
+
+    <div class="main-form__cards">
+      @for (quadra of quadrasFiltradas(); track quadra.id) {
+        <app-card-arena
+          [arena]="quadra"
+        />
+      } @empty {
+          <app-card-arena-not-found/>
+      }
+    </div>
+  </div>
+
+  <mat-divider/>
+
+  <footer>
+    <app-footer/>
+  </footer>
+</div>
+
