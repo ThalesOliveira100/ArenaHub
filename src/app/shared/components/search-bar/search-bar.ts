@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, input, model, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,7 +19,7 @@ import { MatButtonModule } from "@angular/material/button";
   host: {'[style.--width]': 'width()'}
 })
 export class SearchBar {
-  label = input<String>('');
-  width = input<String>('');
-  value = signal('');
+  label = input<string>('');
+  width = input<string>('');
+  value = model<string>('');
 }
