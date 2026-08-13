@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, model } from '@angular/core';
 import { MatFormField } from "@angular/material/form-field";
 import { MatSelectModule } from '@angular/material/select';
 
@@ -13,7 +13,9 @@ import { MatSelectModule } from '@angular/material/select';
   host: {'[style.--width]': 'width()'}
 })
 export class SelectionBar {
-  width = input<String>('');
+  width = input<string>('');
   label = input<string>('');
   options = input<string[]>([]);
+
+  value = model<string>('');
 }
