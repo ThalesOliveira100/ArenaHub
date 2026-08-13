@@ -56,3 +56,65 @@
 
 }
 
+@media screen and (width >= 768px) {
+  .quadras-main-form {
+
+    .main-form__inputs {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 1rem;
+
+      app-search-bar {
+        width: 100%;
+      }
+
+      app-selection-bar {
+        width: 30%;
+      }
+    }
+
+    .main-form__cards {
+      flex-direction: row;
+      justify-content: space-between;
+      align-content: stretch;
+      flex-wrap: wrap;
+      row-gap: 1.5rem;
+
+      app-card-arena {
+        width: 22.08rem;
+        height: fit-content;
+      }
+    }
+  }
+}
+
+@media screen and (width >= 1024px) {
+  .quadras-main-form {
+    .main-form__cards {
+      app-card-arena {
+        width: 23vw;
+        width: 19.6rem;
+      }
+    }
+  }
+}
+
+@media screen and (width >= 1440px) {
+  .quadras-header, .quadras-main-form {
+    margin: 1rem 12rem;
+  }
+
+  .quadras-main-form {
+    .main-form__cards {
+      app-card-arena {
+        width: 325px;
+        width: 20rem;
+      }
+    }
+  }
+
+  footer {
+    margin: 0 5rem;
+  }
+}
