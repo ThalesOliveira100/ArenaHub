@@ -1,3 +1,20 @@
+@use '@angular/material' as mat;
+
+:host {
+  @include mat.select-overrides((
+    panel-background-color: white,
+  ));
+}
+
 .selection-bar {
   width: var(--width, 80vw);
+}
+
+.selection-bar__opt:hover {
+  background-color: orange !important;
+}
+
+.selection-bar__opt:actived {
+  background-color: orange !important;
+
 }
