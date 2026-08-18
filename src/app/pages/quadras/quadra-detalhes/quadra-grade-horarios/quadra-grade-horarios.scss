@@ -1,0 +1,21 @@
+.grade-horarios__content {
+  .grade-horarios__title {
+    font-weight: 600;
+    font-size: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .grade-horarios__horarios {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid #afafaf;
+    border-radius: 1rem;
+  }
+
+  .grade-horarios__horarios > app-horario {
+    padding: 1rem;
+  }
+
+}
+
