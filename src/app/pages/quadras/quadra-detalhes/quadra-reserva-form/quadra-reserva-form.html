@@ -1,0 +1,109 @@
+<div class="quadra-reserva-form">
+  <div class="quadra-reserva-form__container">
+    <div class="quadra-reserva-form__card">
+      <mat-expansion-panel expanded="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title> Solicitar reserva </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-panel-description> Envie seu pedido - a confirmação é feita pelo gestor da quadra. </mat-panel-description>
+
+        <div class="form-card__campo">
+          <p class="form-card__title">Nome</p>
+          <mat-form-field [appearance]="'outline'">
+            <input
+              type="text"
+              matInput
+              placeholder="Seu nome completo"
+              [formControl]="nome"
+              required
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="form-card__campo">
+          <p class="form-card__title">Email</p>
+          <mat-form-field [appearance]="'outline'">
+            <input
+              type="email"
+              matInput
+              placeholder="voce@email.com"
+              [formControl]="email"
+              required
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="form-card__campo">
+          <p class="form-card__title">Numero</p>
+          <mat-form-field [appearance]="'outline'">
+            <input
+              type="tel"
+              matInput
+              placeholder="(31) 99999-0000"
+              required
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="form-card__campo">
+          <p class="form-card__title">Esporte</p>
+          <app-selection-bar
+            [width]="'100%'"
+            [options]="quadra()!.esportes"
+            [label]="'Selecione o esporte'"
+          />
+        </div>
+
+        <div class="card__data_horario">
+          <div class="form-card__campo">
+            <p class="form-card__title">Data</p>
+            <mat-form-field [appearance]="'outline'">
+              <input
+                matInput
+                placeholder="dd/mm/aaaa"
+                [matDatepicker]="data"
+                required
+              >
+              <mat-datepicker-toggle matIconSuffix [for]="data"></mat-datepicker-toggle>
+              <mat-datepicker
+                #data
+                locale="br-BT"
+              ></mat-datepicker>
+            </mat-form-field>
+          </div>
+
+          <div class="form-card__campo">
+            <p class="form-card__title">Horário</p>
+            <mat-form-field [appearance]="'outline'">
+              <input
+                matInput
+                placeholder="- : -"
+                [matTimepicker]="horario"
+                required
+              >
+              <mat-timepicker-toggle matIconSuffix [for]="horario"/>
+              <mat-timepicker #horario/>
+            </mat-form-field>
+          </div>
+
+        </div>
+
+        <div class="form-card__campo">
+          <p class="form-card__title">Observações</p>
+          <mat-form-field [appearance]="'outline'">
+            <textarea
+              matInput
+              placeholder="Quantidade de pessoas, necessidades..."
+            ></textarea>
+          </mat-form-field>
+        </div>
+
+        <button
+          (click)="[onSubmit()]"
+          class="form-card__submit-button"
+          matButton="filled">Enviar pedido</button>
+      </mat-expansion-panel>
+    </div>
+  </div>
+</div>
