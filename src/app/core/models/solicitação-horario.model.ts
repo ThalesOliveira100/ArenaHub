@@ -1,5 +1,11 @@
 import { Perfil } from "./perfil.model";
-import { StatusSolicitacao } from "./status-solicitacao.model";
+
+export enum SolicitacaoHorarioStatus {
+  RESERVADO = 'RESERVADO',
+  DISPONIVEL = 'DISPONIVEL',
+  SUSPENSO = 'SUSPENSO',
+  INDISPONIVEL = 'INDISPONIVEL'
+}
 
 export interface SolicitacaoHorario {
   id: number;
@@ -12,6 +18,6 @@ export interface SolicitacaoHorario {
   solicitanteNome: string;
   solicitanteContato: string;
   solicitantePerfil: Perfil;
-  status: StatusSolicitacao;
+  status: SolicitacaoHorarioStatus;
   rejeicaoMensagem?: string;
 }

@@ -6,4 +6,5 @@ export interface GradeHorario {
   horaFinal: string;
   esporte?: string;
   preco?: number;
+  solicitanteNome: string
 }

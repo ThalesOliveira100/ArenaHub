@@ -14,4 +14,5 @@ export interface Quadra {
   gestorId: number; // FK de usuarios.id
   monitorId: number; // FK de usuario.id
   imagemUrl?: string;
+  descricao?: string;
 }
