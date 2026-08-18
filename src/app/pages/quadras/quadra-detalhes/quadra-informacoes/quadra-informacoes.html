@@ -1,0 +1,30 @@
+<div class="quadra-informacoes__content">
+  @if (quadra()) {
+    <div class="quadra-inf__card">
+      <img
+        src="{{ quadra()?.imagemUrl }}"
+        alt="Imagem da quadra {{quadra()?.nome}}"
+      >
+
+      <h1>{{ quadra()?.nome }}</h1>
+      <p class="inf-card__local">
+        <mat-icon>location_on</mat-icon>
+        {{ quadra()?.endereco }}
+        • {{ quadra()?.regiao }}
+      </p>
+
+      <div class="card-arena__esportes">
+        @for (esporte of quadra()?.esportes; track quadra()?.id) {
+          <span class="card_arena__esporte">{{esporte}} </span>
+        }
+      </div>
+
+      <p>{{ quadra()?.descricao }}</p>
+
+    </div>
+  } @else {
+    <div class="not-found">
+      <app-card-arena-not-found/>
+    </div>
+  }
+</div>
