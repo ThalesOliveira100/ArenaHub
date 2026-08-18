@@ -1,0 +1,29 @@
+.horario__content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: small;
+
+  .horario__content-left {
+    flex-direction: column;
+    line-height: 1rem;
+
+    .horario__dia-horario {
+      font-weight: 500;
+    }
+
+    .horario__esporte-solicitante {
+      color: gray;
+    }
+  }
+
+  .horario__status {
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    height: fit-content;
+    background-color: #dfedf6;
+    border: 1px #428ec0 solid;
+    border-radius: 2rem;
+    color: #428ec0;
+  }
+}
