@@ -1,0 +1,39 @@
+<div class="quadra-detalhes__content">
+  <header class="quadra-header">
+    <app-logo />
+    <a
+      matButton="outlined"
+      class="quadra-header__btn"
+      href="/login">Acesso da equipe</a>
+  </header>
+  <mat-divider/>
+
+  <div class="content__sections">
+      <p class="quadra-detalhes__link-voltar">
+        <mat-icon>keyboard_backspace</mat-icon>
+        <a
+          href="/quadras">Voltar para as quadras</a>
+      </p>
+
+      <section class="quadra-detalhes__informacoes">
+        <app-quadra-informacoes
+          [quadra]="quadra"
+        />
+      </section>
+
+      <section class="quadra-detalhes__horarios">
+        <app-quadra-grade-horarios
+          [quadra]="quadra"
+        />
+      </section>
+
+      <section class="quadra-detalhes__reserva-form">
+        <app-quadra-reserva-form [quadra]="quadra"/>
+      </section>
+  </div>
+
+  <mat-divider/>
+  <footer>
+    <app-footer/>
+  </footer>
+</div>

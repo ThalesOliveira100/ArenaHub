@@ -1,0 +1,54 @@
+
+
+.quadra-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+}
+
+.quadra-header__btn {
+  color: #3E3E3E !important;
+  border-radius: 0.5rem;
+  border: 1px solid #DEDEDE !important;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+  font-weight: 500;
+
+  transition: background-color 0.3s ease;
+}
+
+.quadra-header__btn:hover {
+  background-color: orange;
+}
+
+.quadra-detalhes__link-voltar {
+  margin-top: 2rem;
+  color: gray;
+  font-size: smaller;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 0.2rem;
+  cursor: pointer;
+
+  transition: background-color 0.5s ease;
+
+  a:visited {
+    color: gray;
+  }
+}
+
+.quadra-detalhes__link-voltar:hover {
+  a {
+    color: black;
+  }
+  color: black;
+}
+
+.content__sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 1rem;
+  padding-bottom: 6rem;
+}
