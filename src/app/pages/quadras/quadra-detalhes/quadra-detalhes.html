@@ -18,19 +18,20 @@
 
         <section class="quadra-detalhes__informacoes">
           <app-quadra-informacoes
-            [quadra]="quadra"
+            [quadra]="quadra()"
           />
         </section>
 
         <section class="quadra-detalhes__horarios">
           <app-quadra-grade-horarios
-            [quadra]="quadra"
+            [quadra]="quadra()"
+            [listaDeHorarios]="gradeHorarios()"
           />
         </section>
       </div>
 
       <section class="quadra-detalhes__reserva-form">
-        <app-quadra-reserva-form [quadra]="quadra"/>
+        <app-quadra-reserva-form [quadra]="quadra()"/>
       </section>
   </div>
 

@@ -1,20 +1,15 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Logo } from '../../../shared/components/logo/logo';
 import { Footer } from '../../../shared/components/footer/footer';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { SelectionBar } from '../../../shared/components/selection-bar/selection-bar';
 import { MatInputModule } from '@angular/material/input';
-import { quadras } from '../../../core/auth/quadrasTeste';
 import { QuadraReservaForm } from "./quadra-reserva-form/quadra-reserva-form";
 import { QuadraInformacoes } from "./quadra-informacoes/quadra-informacoes";
-import { Quadra } from '../../../core/models/quadra.model';
-import { HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { QuadraGradeHorarios } from "./quadra-grade-horarios/quadra-grade-horarios";
+import { QuadrasService } from '../../../core/services/quadras-service';
 
 const MODULES = [
   MatDividerModule,
@@ -40,16 +35,16 @@ const COMPONENTS = [
   templateUrl: './quadra-detalhes.html',
   styleUrl: './quadra-detalhes.scss',
 })
-export class QuadraDetalhes {
+export class QuadraDetalhes implements OnInit {
   private route = inject(ActivatedRoute);
-  id = input<string>();
+  private quadrasService = inject(QuadrasService);
 
-  get quadra(): Quadra | undefined {
-    const idUrl = this.route.snapshot.paramMap.get('id');
+  quadraId = Number(this.route.snapshot.paramMap.get('id'));
+  quadra = signal<any>(null);
+  gradeHorarios = signal<any[]>([]);
 
-    console.log(idUrl)
-    if (!idUrl) return undefined;
-
-    return quadras.find(quadra => quadra.id === Number(idUrl));
+  ngOnInit(): void {
+    this.quadrasService.getQuadraPorId(this.quadraId).subscribe(dados => this.quadra.set(dados));
+    this.quadrasService.getGradeHorarios(this.quadraId).subscribe(dados => this.gradeHorarios.set(dados));
   }
 }
