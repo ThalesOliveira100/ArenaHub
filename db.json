@@ -1,0 +1,382 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Thales Oliveira",
+      "email": "admin@arena.com",
+      "senha": "321",
+      "perfil": "ADMIN",
+      "regiao": "Central"
+    },
+    {
+      "id": 2,
+      "nome": "Mariana Souza",
+      "email": "gestor.mariana@arena.com",
+      "senha": "123",
+      "perfil": "GESTOR",
+      "regiao": "Zona Sul"
+    },
+    {
+      "id": 3,
+      "nome": "Roberto Oliveira",
+      "email": "gestor.roberto@arena.com",
+      "senha": "123",
+      "perfil": "GESTOR",
+      "regiao": "Zona Norte"
+    },
+    {
+      "id": 4,
+      "nome": "Lucas Santos",
+      "email": "monitor.lucas@arena.com",
+      "senha": "123",
+      "perfil": "MONITOR",
+      "regiao": "Zona Sul"
+    },
+    {
+      "id": 5,
+      "nome": "Fernanda Lima",
+      "email": "monitor.fernanda@arena.com",
+      "senha": "123",
+      "perfil": "MONITOR",
+      "regiao": "Zona Norte"
+    },
+    {
+      "id": 6,
+      "nome": "Thiago Silva",
+      "email": "thiago@gmail.com",
+      "senha": "123",
+      "perfil": "PUBLICO",
+      "regiao": "Zona Sul"
+    }
+  ],
+  "quadras": [
+    {
+      "id": 1,
+      "nome": "Quadra Poliesportiva Principal",
+      "regiao": "Zona Sul",
+      "endereco": "Rua das Laranjeiras, 1500 - Centro",
+      "descricao": "Quadra poliesportiva coberta com piso de madeira com marcações oficiais. Possui arquibancada para 200 pessoas e iluminação de LED, ideal para competições noturnas.",
+      "imagemUrl": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=800&auto=format&fit=crop",
+      "status": "ATIVA",
+      "esportes": [
+        "Futsal",
+        "Vôlei",
+        "Handebol"
+      ],
+      "gestorId": 2,
+      "monitorId": 4
+    },
+    {
+      "id": 2,
+      "nome": "Arena Sand & Sun (Beach Tennis)",
+      "regiao": "Zona Sul",
+      "endereco": "Av. Beira Mar, 320 - Orla Sul",
+      "descricao": "Arena ao ar livre com areia fina, nivelada e tratada. Rede com altura ajustável para diferentes modalidades e quiosque de hidratação anexo.",
+      "imagemUrl": "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=800&auto=format&fit=crop",
+      "status": "ATIVA",
+      "esportes": [
+        "Beach Tennis",
+        "Vôlei de Areia",
+        "Futevôlei"
+      ],
+      "gestorId": 2,
+      "monitorId": 4
+    },
+    {
+      "id": 3,
+      "nome": "Quadra Society Gold",
+      "regiao": "Zona Norte",
+      "endereco": "Rua do Estádio, 85 - Jardim Botânico",
+      "descricao": "Campo de futebol society com grama sintética de alta performance e sistema de amortecimento aprovado pela federação. Vestiários climatizados inclusos no aluguel.",
+      "imagemUrl": "https://images.unsplash.com/photo-1552318414-a9034237fb36?q=80&w=800&auto=format&fit=crop",
+      "status": "ATIVA",
+      "esportes": [
+        "Futebol Society"
+      ],
+      "gestorId": 3,
+      "monitorId": 5
+    },
+    {
+      "id": 4,
+      "nome": "Quadra de Tênis Rápida",
+      "regiao": "Zona Norte",
+      "endereco": "Alameda dos Esportes, 1020 - Parque Norte",
+      "descricao": "Quadra de tênis de piso duro (hard court), excelente para jogos de alta velocidade e trocas rápidas. Cercamento telado padrão internacional.",
+      "imagemUrl": "https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?q=80&w=800&auto=format&fit=crop",
+      "status": "MANUTENCAO",
+      "esportes": [
+        "Tênis"
+      ],
+      "gestorId": 3,
+      "monitorId": 5
+    },
+    {
+      "id": 5,
+      "nome": "Centro Poliesportivo de Pedro Leopoldo",
+      "regiao": "Pedro Leopoldo",
+      "endereco": "R. Anélio Caldas, 185 - Centro",
+      "status": "MANUTENCAO",
+      "esportes": [
+        "vôlei",
+        "futsal",
+        "basquete",
+        "badminton",
+        "queimada"
+      ],
+      "descricao": "O CEPPEL é um complexo poliesportivo e de lazer de aproximadamente 75 mil metros quadrados localizado em Pedro Leopoldo, Minas Gerais. O espaço tem passado por amplas reformas e revitalizações estruturais para incentivar a prática de atividades físicas, o esporte e a convivência comunitária.",
+      "gestorId": 1,
+      "monitorId": 1,
+      "imagemUrl": "https://pl.mg.gov.br/wp-content/uploads/2026/07/Homem-e-preso-apos-furtar-ferramentas-de-reforma-do-CEPPEL.jpeg"
+    },
+    {
+      "id": 6,
+      "nome": "PL Beach",
+      "regiao": "Pedro Leopoldo",
+      "endereco": "Av. Cel. Juventino Dias, 584 - CENTRO",
+      "status": "ATIVA",
+      "esportes": [
+        "futvolei",
+        "volei de areia"
+      ],
+      "descricao": "O PL Beach Sports é um centro esporte e lazer localizado na Avenida Coronel Juventino Dias, 584, no centro de Pedro Leopoldo (MG). O espaço é dedicado à prática de esportes de areia e conta com infraestrutura voltada para o bem-estar e diversão de atletas e visitantes.",
+      "gestorId": 1,
+      "monitorId": 1
+    },
+    {
+      "id": 7,
+      "nome": "Ginásio Municipal Poliesportivo Dr. Márcio Reinaldo",
+      "regiao": "Matozinhos",
+      "endereco": "R. João Gonçalves de Oliveira, 201 - São Pedro",
+      "status": "ATIVA",
+      "esportes": [
+        "vôlei",
+        "futsal",
+        "judô"
+      ],
+      "descricao": "Ginásio Municipal Poliesportivo Dr. Márcio Reinaldo fica em Matozinhos, Minas Gerais, e serve como o principal espaço público para eventos esportivos, culturais e competições oficiais da cidade.",
+      "gestorId": 1,
+      "monitorId": 1,
+      "imagemUrl": "https://cdn6.campograndenews.com.br/uploads/noticias/2020/03/10/24lrysd7ur1cc.jpg"
+    },
+    {
+      "id": 8,
+      "nome": "Ginásio Poliesportivo Municipal de Confins",
+      "regiao": "Confins",
+      "endereco": "R. Raimunda Marques, Confins - MG",
+      "status": "ATIVA",
+      "esportes": [
+        "volei",
+        "futsal",
+        "tênis de mesa"
+      ],
+      "descricao": "O Ginásio Poliesportivo Municipal de Confins é um espaço público localizado na Rua Raimunda Marques (próximo à região central de Confins, MG), destinado à prática de esportes, treinos, campeonatos locais de futsal e eventos socioculturais e comunitários do município.",
+      "gestorId": 1,
+      "monitorId": 1
+    }
+  ],
+  "ativos_imobilizados": [
+    {
+      "id": 1,
+      "quadraId": 1,
+      "nome": "Rede de Futsal Profissional (Par)",
+      "categoria": "EQUIPAMENTO_ESPORTIVO",
+      "quantidade": 1,
+      "status": "EXCELENTE",
+      "preco": 350.00
+    },
+    {
+      "id": 2,
+      "quadraId": 1,
+      "nome": "Placar Eletrônico de Parede",
+      "categoria": "ELETRONICO",
+      "quantidade": 1,
+      "status": "BOM",
+      "preco": 1200.00
+    },
+    {
+      "id": 3,
+      "quadraId": 2,
+      "nome": "Rede de Beach Tennis com Faixas",
+      "categoria": "EQUIPAMENTO_ESPORTIVO",
+      "quantidade": 2,
+      "status": "BOM",
+      "preco": 450.00
+    },
+    {
+      "id": 4,
+      "quadraId": 3,
+      "nome": "Refletores de LED 200W",
+      "categoria": "INFRAESTRUTURA",
+      "quantidade": 8,
+      "status": "EXCELENTE",
+      "preco": 2400.00
+    }
+  ],
+  "relatorios_consumo": [
+    {
+      "id": 1,
+      "quadraId": 1,
+      "ano": 2026,
+      "mes": 6,
+      "energiaKwh": 450,
+      "aguaM3": 12,
+      "ocupacaoPercentual": 10
+    },
+    {
+      "id": 2,
+      "quadraId": 1,
+      "ano": 2026,
+      "mes": 7,
+      "energiaKwh": 480,
+      "aguaM3": 15,
+      "ocupacaoPercentual": 20
+    },
+    {
+      "id": 3,
+      "quadraId": 2,
+      "ano": 2026,
+      "mes": 7,
+      "energiaKwh": 210,
+      "aguaM3": 8,
+      "ocupacaoPercentual": 8
+    },
+    {
+      "id": 4,
+      "quadraId": 3,
+      "ano": 2026,
+      "mes": 7,
+      "energiaKwh": 890,
+      "aguaM3": 25,
+      "ocupacaoPercentual": 70
+    }
+  ],
+  "grade_horarios": [
+    {
+      "id": 1,
+      "quadraId": 1,
+      "diaDaSemana": 1,
+      "horaInicio": "18:00",
+      "horaFinal": "19:00",
+      "esporte": "Futsal",
+      "preco": 120.00,
+      "solicitanteNome": "Thiago Silva"
+    },
+    {
+      "id": 2,
+      "quadraId": 1,
+      "diaDaSemana": 1,
+      "horaInicio": "19:00",
+      "horaFinal": "20:00",
+      "esporte": "Futsal",
+      "preco": 120.00,
+      "solicitanteNome": "Thiago Silva"
+    },
+    {
+      "id": 3,
+      "quadraId": 1,
+      "diaDaSemana": 2,
+      "horaInicio": "18:00",
+      "horaFinal": "19:00",
+      "esporte": "Vôlei",
+      "preco": 100.00,
+      "solicitanteNome": "Renata Mello"
+    },
+    {
+      "id": 4,
+      "quadraId": 2,
+      "diaDaSemana": 5,
+      "horaInicio": "08:00",
+      "horaFinal": "09:00",
+      "esporte": "Beach Tennis",
+      "preco": 80.00,
+      "solicitanteNome": "Renata Mello"
+    },
+    {
+      "id": 5,
+      "quadraId": 3,
+      "diaDaSemana": 6,
+      "horaInicio": "16:00",
+      "horaFinal": "17:30",
+      "esporte": "Futebol Society",
+      "preco": 200.00,
+      "solicitanteNome": "Lucas Santos"
+    }
+  ],
+  "solicitacoes_horario": [
+    {
+      "id": 1,
+      "quadraId": 1,
+      "horarioId": 1,
+      "data": "2026-08-20",
+      "horaInicio": "18:00",
+      "horaFinal": "19:00",
+      "esporte": "Futsal",
+      "solicitanteNome": "Thiago Silva",
+      "solicitanteContato": "(11) 99999-8888",
+      "solicitantePerfil": "PUBLICO",
+      "status": "RESERVADO"
+    },
+    {
+      "id": 2,
+      "quadraId": 2,
+      "horarioId": 4,
+      "data": "2026-08-21",
+      "horaInicio": "08:00",
+      "horaFinal": "09:00",
+      "esporte": "Beach Tennis",
+      "solicitanteNome": "Renata Mello",
+      "solicitanteContato": "(11) 98888-7777",
+      "solicitantePerfil": "PUBLICO",
+      "status": "PENDENTE"
+    }
+  ],
+  "solicitacoes_ativos": [
+    {
+      "id": 1,
+      "quadraId": 1,
+      "monitorId": 4,
+      "nomeEquipamento": "Bola de Futsal Penalty Max 1000",
+      "quantidade": 3,
+      "status": "PENDENTE",
+      "justificativa": "As bolas atuais estão muito desgastadas e murchando durante o uso dos clientes.",
+      "preco": 180.00
+    }
+  ],
+  "feedbacks": [
+    {
+      "id": 1,
+      "quadraId": 1,
+      "monitorId": 4,
+      "titulo": "Reclamação - Chuveiro Frio",
+      "mensagem": "Os jogadores do horário das 21h reclamaram que a água do chuveiro do vestiário masculino estava totalmente fria.",
+      "status": "ABERTO"
+    }
+  ],
+  "eventos": [
+    {
+      "id": 1,
+      "quadraId": 1,
+      "titulo": "Torneio Interno de Futsal Sub-15",
+      "descricao": "Campeonato de integração das escolinhas da região. Aberto para o público assistir.",
+      "data": "2026-08-23",
+      "horaInicio": "09:00",
+      "horaFinal": "14:00",
+      "organizador": "Thales Oliveira",
+      "publicoEsperado": 200,
+      "modalidade": "Futsal"
+    }
+  ],
+  "multas": [
+    {
+      "id": 1,
+      "quadraId": 1,
+      "monitorId": 4,
+      "ativoDanificadoId": 1,
+      "nomeResponsavel": "Marcos Alencar",
+      "motivo": "Chutou a bola intencionalmente contra a rede divisória superior, rasgando parte da estrutura.",
+      "data": "2026-08-15",
+      "preco": 150.00,
+      "status": "PENDENTE"
+    }
+  ]
+}
