@@ -9,7 +9,6 @@ import { Quadra } from '../../../../core/models/quadra.model';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import { MatTimepickerModule } from '@angular/material/timepicker';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { FormConfig } from '../../../../core/models/form-config.interface';
 import { SelectionBar } from "../../../../shared/components/selection-bar/selection-bar";
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -32,10 +31,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class QuadraReservaForm implements OnInit {
   private _snackBar = inject(MatSnackBar);
-  reservaForm!: FormGroup;
-
-  dadosReservaForm!: FormGroup;
-  formConfig!: FormConfig;
 
   quadra = input.required<Quadra | undefined>();
 
