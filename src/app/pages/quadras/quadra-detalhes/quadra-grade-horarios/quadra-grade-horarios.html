@@ -2,12 +2,14 @@
   <h2 class="grade-horarios__title">Grade de horários</h2>
 
   <div class="grade-horarios__horarios">
-    @for (horario of listaDeHorarios; track horario.id; let last = $last) {
+    @for (horario of listaDeHorarios(); track horario.id; let last = $last) {
       <app-horario [dados]="horario"></app-horario>
 
       @if (!last) {
         <mat-divider/>
       }
+    } @empty {
+      <p>Sem horários reservados ainda...</p>
     }
   </div>
 </div>
