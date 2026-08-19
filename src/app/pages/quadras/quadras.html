@@ -24,7 +24,7 @@
 
       <app-selection-bar
         label="Todas as regiões"
-        [options]="getRegioesPorQuadra()"
+        [options]="regioesDisponiveis()"
         width="100%"
         [(value)]="regiaoSelecionada"
       />
@@ -36,7 +36,7 @@
           [arena]="quadra"
         />
       } @empty {
-          <app-card-arena-not-found/>
+        <app-card-arena-not-found/>
       }
     </div>
   </div>

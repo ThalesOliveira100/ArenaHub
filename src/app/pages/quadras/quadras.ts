@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { Logo } from '../../shared/components/logo/logo';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
@@ -6,12 +6,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { SearchBar } from '../../shared/components/search-bar/search-bar';
 import { SelectionBar } from '../../shared/components/selection-bar/selection-bar';
-import { Quadra, QuadraStatus } from '../../core/models/quadra.model';
 import { CardArena } from '../../shared/components/card-arena/card-arena';
 import { Footer } from "../../shared/components/footer/footer";
-import { BasicCard } from '../../shared/components/basic-card/basic-card';
 import { CardArenaNotFound } from '../../shared/components/card-arena-not-found/card-arena-not-found';
-import { quadras } from '../../core/auth/quadrasTeste';
+import { QuadrasService } from '../../core/services/quadras-service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 const MODULES = [
   MatButtonModule,
@@ -39,6 +38,8 @@ const COMPONENTS = [
   styleUrl: './quadras.scss',
 })
 export class Quadras {
+  private quadrasService = inject(QuadrasService);
+  protected todasQuadras = toSignal(this.quadrasService.getQuadras(), {initialValue: []});
   protected termoBusca = signal('');
   protected regiaoSelecionada = signal('');
 
@@ -46,7 +47,7 @@ export class Quadras {
     const termo = this.termoBusca().toLowerCase().trim();
     const regiao = this.regiaoSelecionada();
 
-    let resultado = quadras;
+    let resultado = this.todasQuadras();
 
     if (regiao !== '') {
       resultado = resultado.filter(quadra => quadra.regiao === regiao);
@@ -54,25 +55,19 @@ export class Quadras {
 
     if (termo) {
       resultado = resultado.filter((quadra) => {
-        return  quadra.nome.toLocaleLowerCase().includes(termo) ||
-                quadra.endereco.toLocaleLowerCase().includes(termo) ||
-                quadra.esportes.includes(termo)
+        const nomeMatches = quadra.nome.toLowerCase().includes(termo);
+        const esportesMatches = quadra.esportes.some(esporte => esporte.toLowerCase().includes(termo));
+        const enderecoMatches = (quadra as any).endereco?.toLowerCase().includes(termo) || false;
+
+        return nomeMatches || esportesMatches || enderecoMatches;
       });
-    }
+    };
 
     return resultado;
   })
 
-  protected getRegioesPorQuadra() {
-    let regioes: string[] = [];
-
-    for (let quadra of quadras) {
-      const regiao = quadra.regiao;
-      if (!regioes.includes(regiao)) {
-        regioes.push(regiao);
-      }
-    }
-
-    return regioes;
-  }
+  protected readonly regioesDisponiveis = computed(() => {
+    const regioes = this.todasQuadras().map(quadra => quadra.regiao);
+    return [...new Set(regioes)];
+  })
 }
