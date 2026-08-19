@@ -13,5 +13,5 @@ import { CardArenaNotFound } from "../../../../shared/components/card-arena-not-
   styleUrl: './quadra-informacoes.scss',
 })
 export class QuadraInformacoes {
-  quadra = input.required<Quadra | undefined>();
+  quadra = input.required<Quadra>();
 }
