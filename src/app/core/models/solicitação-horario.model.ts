@@ -4,7 +4,8 @@ export enum SolicitacaoHorarioStatus {
   RESERVADO = 'RESERVADO',
   DISPONIVEL = 'DISPONIVEL',
   SUSPENSO = 'SUSPENSO',
-  INDISPONIVEL = 'INDISPONIVEL'
+  INDISPONIVEL = 'INDISPONIVEL',
+  PENDENTE = 'PENDENTE'
 }
 
 export interface SolicitacaoHorario {
