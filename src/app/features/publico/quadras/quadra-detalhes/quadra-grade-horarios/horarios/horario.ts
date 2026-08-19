@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
-import { GradeHorario } from '../../../../../core/models/grade-horario.model';
-import { DiaSemanaPipe } from '../../../../../shared/pipes/dia-semana.pipe';
+import { GradeHorario } from '../../../../../../core/models/grade-horario.model';
+import { DiaSemanaPipe } from '../../../../../../shared/pipes/dia-semana.pipe';
 
 @Component({
   selector: 'app-horario',

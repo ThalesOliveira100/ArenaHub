@@ -87,14 +87,14 @@
             <mat-expansion-panel [hideToggle]="false">
                 <mat-expansion-panel-header class="auth-examples--title">Contas de demonstração</mat-expansion-panel-header>
                 <div class="examples--contas">
-                  @for (conta of _contasTeste; track conta.id) {
+                  @for (conta of contasTeste(); track conta.id) {
                     <button matButton="outlined"
                     (click)="preencherContasExemplos(conta.email, conta.senha)"
                     >
                       <div class="conta--details">
                         <p class="contas--nome">{{ conta.nome }}</p>
-                        <p class="contas--text">{{ conta.email }}</p>
-                        <p class="contas--text">senha: {{ conta.senha }}</p>
+                        <p class="contas--text">{{ conta.perfil }}</p>
+                        <p class="contas--text">Região: {{ conta.regiao }}</p>
                       </div>
                     </button>
                   }

@@ -5,11 +5,11 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { Quadra } from '../../../../core/models/quadra.model';
+import { Quadra } from '../../../../../core/models/quadra.model';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import { MatTimepickerModule } from '@angular/material/timepicker';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { SelectionBar } from "../../../../shared/components/selection-bar/selection-bar";
+import { SelectionBar } from "../../../../../shared/components/selection-bar/selection-bar";
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({

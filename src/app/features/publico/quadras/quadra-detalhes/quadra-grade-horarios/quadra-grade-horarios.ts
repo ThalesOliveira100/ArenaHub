@@ -1,6 +1,6 @@
-import { GradeHorario } from '../../../../core/models/grade-horario.model';
+import { GradeHorario } from '../../../../../core/models/grade-horario.model';
 import { Component, input } from '@angular/core';
-import { Quadra } from '../../../../core/models/quadra.model';
+import { Quadra } from '../../../../../core/models/quadra.model';
 import { Horario } from './horarios/horario';
 import { MatDivider } from "@angular/material/divider";
 
