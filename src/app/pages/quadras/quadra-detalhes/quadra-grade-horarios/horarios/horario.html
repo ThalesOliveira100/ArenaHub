@@ -1,10 +1,10 @@
 <div class="horario__content">
   <div class="horario__content-left">
     <p class="horario__dia-horario">
-      {{ dados()?.diaDaSemana }} · {{dados()?.horaInicio}} - {{dados()?.horaFinal}}
+      {{ dados().diaDaSemana | diaSemana}} · {{dados().horaInicio}} - {{dados().horaFinal}}
     </p>
 
-    <p class="horario__esporte-solicitante">{{dados()?.esporte}} · {{dados()?.solicitanteNome}}</p>
+    <p class="horario__esporte-solicitante">{{dados().esporte}} · {{dados().solicitanteNome}}</p>
   </div>
 
   <p class="horario__status">Reservado</p>
