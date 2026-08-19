@@ -1,5 +1,4 @@
 .quadra-informacoes__content {
-
   .quadra-inf__card {
     display: flex;
     flex-direction: column;
@@ -29,7 +28,7 @@
     }
 
     h1 {
-      font-weight: 500;
+      font-weight: 700;
       font-size: 1.5rem;
       line-height: 1.5rem;
     }
@@ -47,3 +46,12 @@
   }
 }
 
+@media screen and (width >= 768px) {
+  .quadra-informacoes__content {
+    .quadra-inf__card {
+      img {
+        height: calc(.25rem * 64);
+      }
+    }
+  }
+}

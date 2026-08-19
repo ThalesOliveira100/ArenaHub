@@ -11,6 +11,16 @@ mat-form-field {
   border-radius: 1.5rem !important;
 }
 
+mat-panel-title {
+  font-weight: 600;
+  font-size: large;
+}
+
+mat-panel-description {
+  margin-bottom: 2rem;
+
+}
+
 .card__data_horario {
   display: flex;
   flex-direction: row;

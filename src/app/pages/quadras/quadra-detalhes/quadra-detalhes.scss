@@ -1,5 +1,3 @@
-
-
 .quadra-header {
   display: flex;
   justify-content: space-between;
@@ -51,4 +49,32 @@
   gap: 1rem;
   margin: 0 1rem;
   padding-bottom: 6rem;
+}
+
+@media screen and (width >= 1024px) {
+  .content__sections {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .quadra-detalhes__reserva-form {
+    margin-top: 4.5rem;
+  }
+
+  .quadra-detalhes__link-voltar {
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (width >= 1440px) {
+  .quadra-header,
+  .content__sections,
+  .footer
+  {
+    padding: 0 8rem;
+  }
+
+  .quadra-detalhes__reserva-form {
+    margin-bottom: 6rem;
+  }
 }

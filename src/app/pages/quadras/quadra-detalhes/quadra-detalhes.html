@@ -9,23 +9,25 @@
   <mat-divider/>
 
   <div class="content__sections">
-      <p class="quadra-detalhes__link-voltar">
-        <mat-icon>keyboard_backspace</mat-icon>
-        <a
-          href="/quadras">Voltar para as quadras</a>
-      </p>
+      <div class="content-left">
+        <p class="quadra-detalhes__link-voltar">
+          <mat-icon>keyboard_backspace</mat-icon>
+          <a
+            href="/quadras">Voltar para as quadras</a>
+        </p>
 
-      <section class="quadra-detalhes__informacoes">
-        <app-quadra-informacoes
-          [quadra]="quadra"
-        />
-      </section>
+        <section class="quadra-detalhes__informacoes">
+          <app-quadra-informacoes
+            [quadra]="quadra"
+          />
+        </section>
 
-      <section class="quadra-detalhes__horarios">
-        <app-quadra-grade-horarios
-          [quadra]="quadra"
-        />
-      </section>
+        <section class="quadra-detalhes__horarios">
+          <app-quadra-grade-horarios
+            [quadra]="quadra"
+          />
+        </section>
+      </div>
 
       <section class="quadra-detalhes__reserva-form">
         <app-quadra-reserva-form [quadra]="quadra"/>
