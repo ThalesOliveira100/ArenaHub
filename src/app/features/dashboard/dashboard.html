@@ -1,1 +1,118 @@
-<p>dashboard works!</p>
+<div class="dashboard__content">
+  <!-- Main Sidenav Structural Container -->
+  <mat-sidenav-container class="sidenav-container">
+    <!-- Sidebar Navigation Panel -->
+    <mat-sidenav
+      #sidenav
+      [mode]="sidenavMode()"
+      [opened]="sidenavOpened()"
+      class="app-sidenav"
+    >
+      <app-logo [tituloColor]="'white'" />
+
+      <section class="nav-lists">
+        <mat-nav-list>
+          <span class="nav-list-title">Operação</span>
+          <a mat-list-item href="/dashboard">
+            <mat-icon matListItemMeta>dashboard</mat-icon>
+            <span class="nav-text">Dashboard</span>
+          </a>
+
+          <a mat-list-item href="/quadras">
+            <mat-icon matListItemMeta>pin_drop</mat-icon>
+            <span class="nav-text">Quadras</span>
+          </a>
+
+          <a mat-list-item href="/horarios">
+            <mat-icon matListItemMeta>timer</mat-icon>
+            <span class="nav-text">Horários</span>
+          </a>
+
+          <a mat-list-item href="/eventos">
+            <mat-icon matListItemMeta>calendar_month</mat-icon>
+            <span class="nav-text">Eventos</span>
+          </a>
+
+          <a mat-list-item href="/patrimonio">
+            <mat-icon matListItemMeta>storage</mat-icon>
+            <span class="nav-text">Patrimônio</span>
+          </a>
+        </mat-nav-list>
+      </section>
+
+      <section class="nav-lists">
+        <mat-nav-list>
+          <span class="nav-list-title">Gestão</span>
+          <a mat-list-item href="/dashboard">
+            <mat-icon matListItemMeta>event_note</mat-icon>
+            <span class="nav-text">Solicitações</span>
+          </a>
+
+          <a mat-list-item href="/quadras">
+            <mat-icon matListItemMeta>description</mat-icon>
+            <span class="nav-text">Multas</span>
+          </a>
+
+          <a mat-list-item href="/horarios">
+            <mat-icon matListItemMeta>monitoring</mat-icon>
+            <span class="nav-text">Relatórios</span>
+          </a>
+        </mat-nav-list>
+      </section>
+
+      <section class="nav-lists">
+        <mat-nav-list>
+          <span class="nav-list-title">Conta</span>
+          <a mat-list-item href="/dashboard">
+            <mat-icon matListItemMeta>person</mat-icon>
+            <span class="nav-text">Perfil</span>
+          </a>
+
+          <a mat-list-item href="/quadras">
+            <mat-icon matListItemMeta>settings</mat-icon>
+            <span class="nav-text">Configurações</span>
+          </a>
+        </mat-nav-list>
+      </section>
+    </mat-sidenav>
+
+    <!-- Primary Application Content Area -->
+    <mat-sidenav-content class="app-content">
+      <app-dashboard-header
+        [sidenav]="sidenav"
+        [usuarioLogado]="usuarioLogado"
+        (logout)="onLogout()"
+      />
+      <mat-divider />
+
+      <!-- Main View Content Goes Here -->
+      <div class="main-content">
+        <div class="main__top">
+          <div class="main__top-left--content">
+            <p><a href="/dashboard">Início</a> > Dashboard</p>
+            <p class="main__top-nome">Olá, {{ usuarioLogado!.nome }}</p>
+            <p class="main__top-perfil-desc" >Perfil {{ usuarioLogado!.perfil }} · visão geral das quadras sob sua responsabilidade.</p>
+          </div>
+          <a class="main__top-button" matButton="filled" href="/relatorios">Ver relatórios</a>
+        </div>
+
+        <div class="main__cards">
+          @for (card of cardsVisiveis; track $index) {
+            <app-dashboard-card
+              [title]="card.title"
+              [value]="card.value"
+              [icon]="card.icon"
+              [subtitle]="card.subtitle"
+            />
+          }
+
+        </div>
+      </div>
+
+
+      <mat-divider />
+      <app-footer />
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
