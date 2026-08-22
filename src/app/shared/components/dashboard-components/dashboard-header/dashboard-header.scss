@@ -1,0 +1,75 @@
+@use '@angular/material' as mat;
+
+:host {
+  @include mat.badge-overrides((
+    background-color: #007f53,
+    container-size: 1.4rem,
+    line-height: 1.4rem
+  ));
+}
+
+.dash-header__content {
+  mat-toolbar {
+    margin: 0;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .spacer {
+      width: 20%;
+    }
+
+    .dash-header__left-content {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+
+      .dash-header__menu-button,
+      .dash-header__notif-button {
+        border-radius: 0.75rem;
+      }
+
+      .dash-header__menu-button:hover,
+      .dash-header__notif-button:hover {
+        background-color: orange;
+      }
+    }
+
+
+    .dashboard-header__user {
+      background-color: #007f53;
+      border: 3px solid transparent;;
+      border-radius: 2rem;
+      color: white;
+      font-weight: 500;
+      font-size: 0.7rem;
+      width: 2.5rem;
+    }
+
+    .dashboard-header__user:hover {
+      border-color: rgb(212, 190, 147);
+    }
+
+    .dashboard-header__app-title {
+      display: flex;
+      flex-direction: column;
+      height: fit-content;
+      line-height: 1rem;
+      width: 56%;
+
+      .app-title {
+        font-weight: 500;
+        font-size: 1rem;
+      }
+
+      .app-subtitle {
+        color: gray;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
