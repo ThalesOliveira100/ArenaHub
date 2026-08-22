@@ -1,0 +1,47 @@
+.dash-card__content {
+  mat-card {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3);
+
+    .card-left__content {
+      mat-card-subtitle {
+        color: gray;
+        font-size: small;
+        // font-weight: 300;
+      }
+
+      mat-card-title {
+        font-weight: 600;
+        font-size: x-large;
+      }
+
+      mat-card-content {
+        color: gray;
+        font-size: smaller;
+      }
+    }
+
+    .card__header-icon {
+      .card__header-icon__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 0.25rem;
+        background: linear-gradient(120deg,rgba(1, 71, 47, 1) 10%, rgba(0, 160, 101, 1) 100% );
+        border-radius: 0.8rem;
+        height: 2rem;
+        width: 2rem;
+      }
+
+      mat-icon {
+        color: white;
+        size: 0.5rem;
+      }
+    }
+
+  }
+}
