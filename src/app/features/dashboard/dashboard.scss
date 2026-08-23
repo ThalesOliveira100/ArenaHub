@@ -59,6 +59,7 @@
     .main__top {
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       gap: 0.5rem;
 
       p > a {
@@ -80,7 +81,7 @@
       }
 
       .main__top-button {
-        width: 50%;
+        width: 155px;
         background-color: #007f53;
         border-radius: 0.75rem;
         font-weight: 500;
@@ -101,6 +102,7 @@
   .sidenav-container {
     .app-sidenav {
       width: 255px;
+      border-radius: 0;
     }
 
     .app-content {
@@ -113,10 +115,26 @@
       .main__cards {
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
+        // justify-content: space-between;
 
         app-dashboard-card {
           width: 48%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (width >= 1280px) {
+  .sidenav-container {
+    .app-content {
+      .main__cards {
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+        app-dashboard-card {
+          max-width: 180px;
+          height: 145px;
         }
       }
     }
