@@ -1,9 +1,8 @@
-import { inject, Injectable } from '@angular/core';
+import { computed, inject, Injectable, Signal, signal } from '@angular/core';
 import { environment } from '../../../environments/environments.prod';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Quadra } from '../models/quadra.model';
-import { GradeHorario } from '../models/grade-horario.model';
 import { SolicitacaoHorario } from '../models/solicitação-horario.model';
 
 @Injectable({
@@ -22,8 +21,12 @@ export class QuadrasService {
     return this.http.get<Quadra>(`${this.apiUrl}/quadras/${id}`);
   }
 
-  getGradeHorarios(quadraId: number): Observable<GradeHorario[]> {
-    return this.http.get<GradeHorario[]>(`${this.apiUrl}/grade_horarios?quadraId=${quadraId}`);
+  getQuadrasByMonitor(monitorId: number) {
+    return this.http.get<Quadra[]>(`${this.apiUrl}/quadras/?monitorId=${monitorId}`);
+  }
+
+  getQuadrasByGestor(gestorId: number) {
+    return this.http.get<Quadra[]>(`${this.apiUrl}/quadras/?gestorId=${gestorId}`);
   }
 
   sendSolicitacaoHorario(solicitacao: Omit<SolicitacaoHorario, 'id'>): Observable<SolicitacaoHorario> {
