@@ -6,7 +6,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDivider } from "@angular/material/divider";
-import { Usuario } from '../../../../core/models/usuario.model';
+import { Usuario } from '@core/models/usuario.model';
 import { IniciaisPipe } from '@shared/pipes/iniciais.pipe';
 
 const MODULES = [
