@@ -217,37 +217,289 @@
       "id": 1,
       "quadraId": 1,
       "ano": 2026,
-      "mes": 6,
-      "energiaKwh": 450,
-      "aguaM3": 12,
-      "ocupacaoPercentual": 10
+      "mes": 1,
+      "energiaKwh": 400,
+      "aguaM3": 10,
+      "ocupacaoPercentual": 50
     },
     {
       "id": 2,
       "quadraId": 1,
       "ano": 2026,
-      "mes": 7,
-      "energiaKwh": 480,
-      "aguaM3": 15,
-      "ocupacaoPercentual": 20
+      "mes": 2,
+      "energiaKwh": 420,
+      "aguaM3": 11,
+      "ocupacaoPercentual": 52
     },
     {
       "id": 3,
+      "quadraId": 1,
+      "ano": 2026,
+      "mes": 3,
+      "energiaKwh": 390,
+      "aguaM3": 9,
+      "ocupacaoPercentual": 48
+    },
+    {
+      "id": 4,
+      "quadraId": 1,
+      "ano": 2026,
+      "mes": 4,
+      "energiaKwh": 430,
+      "aguaM3": 11,
+      "ocupacaoPercentual": 55
+    },
+    {
+      "id": 5,
+      "quadraId": 1,
+      "ano": 2026,
+      "mes": 5,
+      "energiaKwh": 410,
+      "aguaM3": 10,
+      "ocupacaoPercentual": 50
+    },
+    {
+      "id": 6,
+      "quadraId": 1,
+      "ano": 2026,
+      "mes": 6,
+      "energiaKwh": 450,
+      "aguaM3": 12,
+      "ocupacaoPercentual": 55
+    },
+    {
+      "id": 7,
+      "quadraId": 1,
+      "ano": 2026,
+      "mes": 7,
+      "energiaKwh": 480,
+      "aguaM3": 15,
+      "ocupacaoPercentual": 65
+    },
+    {
+      "id": 8,
+      "quadraId": 1,
+      "ano": 2026,
+      "mes": 8,
+      "energiaKwh": 490,
+      "aguaM3": 16,
+      "ocupacaoPercentual": 68
+    },
+    {
+      "id": 9,
+      "quadraId": 2,
+      "ano": 2026,
+      "mes": 1,
+      "energiaKwh": 180,
+      "aguaM3": 6,
+      "ocupacaoPercentual": 35
+    },
+    {
+      "id": 10,
+      "quadraId": 2,
+      "ano": 2026,
+      "mes": 2,
+      "energiaKwh": 200,
+      "aguaM3": 7,
+      "ocupacaoPercentual": 40
+    },
+    {
+      "id": 11,
+      "quadraId": 2,
+      "ano": 2026,
+      "mes": 3,
+      "energiaKwh": 190,
+      "aguaM3": 6,
+      "ocupacaoPercentual": 38
+    },
+    {
+      "id": 12,
+      "quadraId": 2,
+      "ano": 2026,
+      "mes": 4,
+      "energiaKwh": 220,
+      "aguaM3": 8,
+      "ocupacaoPercentual": 45
+    },
+    {
+      "id": 13,
+      "quadraId": 2,
+      "ano": 2026,
+      "mes": 5,
+      "energiaKwh": 200,
+      "aguaM3": 7,
+      "ocupacaoPercentual": 42
+    },
+    {
+      "id": 14,
+      "quadraId": 2,
+      "ano": 2026,
+      "mes": 6,
+      "energiaKwh": 210,
+      "aguaM3": 8,
+      "ocupacaoPercentual": 44
+    },
+    {
+      "id": 15,
       "quadraId": 2,
       "ano": 2026,
       "mes": 7,
       "energiaKwh": 210,
       "aguaM3": 8,
-      "ocupacaoPercentual": 8
+      "ocupacaoPercentual": 45
     },
     {
-      "id": 4,
+      "id": 16,
+      "quadraId": 2,
+      "ano": 2026,
+      "mes": 8,
+      "energiaKwh": 230,
+      "aguaM3": 9,
+      "ocupacaoPercentual": 48
+    },
+    {
+      "id": 17,
+      "quadraId": 3,
+      "ano": 2026,
+      "mes": 1,
+      "energiaKwh": 800,
+      "aguaM3": 22,
+      "ocupacaoPercentual": 68
+    },
+    {
+      "id": 18,
+      "quadraId": 3,
+      "ano": 2026,
+      "mes": 2,
+      "energiaKwh": 820,
+      "aguaM3": 23,
+      "ocupacaoPercentual": 70
+    },
+    {
+      "id": 19,
+      "quadraId": 3,
+      "ano": 2026,
+      "mes": 3,
+      "energiaKwh": 780,
+      "aguaM3": 21,
+      "ocupacaoPercentual": 65
+    },
+    {
+      "id": 20,
+      "quadraId": 3,
+      "ano": 2026,
+      "mes": 4,
+      "energiaKwh": 850,
+      "aguaM3": 24,
+      "ocupacaoPercentual": 72
+    },
+    {
+      "id": 21,
+      "quadraId": 3,
+      "ano": 2026,
+      "mes": 5,
+      "energiaKwh": 830,
+      "aguaM3": 23,
+      "ocupacaoPercentual": 70
+    },
+    {
+      "id": 22,
+      "quadraId": 3,
+      "ano": 2026,
+      "mes": 6,
+      "energiaKwh": 860,
+      "aguaM3": 24,
+      "ocupacaoPercentual": 73
+    },
+    {
+      "id": 23,
       "quadraId": 3,
       "ano": 2026,
       "mes": 7,
       "energiaKwh": 890,
       "aguaM3": 25,
-      "ocupacaoPercentual": 70
+      "ocupacaoPercentual": 75
+    },
+    {
+      "id": 24,
+      "quadraId": 3,
+      "ano": 2026,
+      "mes": 8,
+      "energiaKwh": 910,
+      "aguaM3": 26,
+      "ocupacaoPercentual": 78
+    },
+    {
+      "id": 25,
+      "quadraId": 4,
+      "ano": 2026,
+      "mes": 1,
+      "energiaKwh": 220,
+      "aguaM3": 7,
+      "ocupacaoPercentual": 45
+    },
+    {
+      "id": 26,
+      "quadraId": 4,
+      "ano": 2026,
+      "mes": 2,
+      "energiaKwh": 230,
+      "aguaM3": 8,
+      "ocupacaoPercentual": 48
+    },
+    {
+      "id": 27,
+      "quadraId": 4,
+      "ano": 2026,
+      "mes": 3,
+      "energiaKwh": 210,
+      "aguaM3": 7,
+      "ocupacaoPercentual": 44
+    },
+    {
+      "id": 28,
+      "quadraId": 4,
+      "ano": 2026,
+      "mes": 4,
+      "energiaKwh": 240,
+      "aguaM3": 8,
+      "ocupacaoPercentual": 50
+    },
+    {
+      "id": 29,
+      "quadraId": 4,
+      "ano": 2026,
+      "mes": 5,
+      "energiaKwh": 230,
+      "aguaM3": 7,
+      "ocupacaoPercentual": 48
+    },
+    {
+      "id": 30,
+      "quadraId": 4,
+      "ano": 2026,
+      "mes": 6,
+      "energiaKwh": 220,
+      "aguaM3": 8,
+      "ocupacaoPercentual": 46
+    },
+    {
+      "id": 31,
+      "quadraId": 4,
+      "ano": 2026,
+      "mes": 7,
+      "energiaKwh": 40,
+      "aguaM3": 1,
+      "ocupacaoPercentual": 5
+    },
+    {
+      "id": 32,
+      "quadraId": 4,
+      "ano": 2026,
+      "mes": 8,
+      "energiaKwh": 20,
+      "aguaM3": 0,
+      "ocupacaoPercentual": 0
     }
   ],
   "grade_horarios": [
