@@ -1,0 +1,21 @@
+<mat-card class="grafico-card-container">
+  <mat-card-header>
+    <mat-card-title class="grafico-card-title">Horas utilizadas por esporte</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="grafico-card-content">
+    @if (grades().length > 0) {
+      <div class="canvas-container">
+        <canvas #graficoCanvas></canvas>
+      </div>
+    } @else {
+      <div class="empty-state">
+        <mat-icon class="empty-state__icon">analytics</mat-icon>
+        <p class="empty-state__text">Nenhum dado de horário encontrado</p>
+        <p class="empty-state__subtext">
+          Não há horários cadastrados ou vinculados ao seu perfil para gerar o relatório.
+        </p>
+      </div>
+    }
+  </mat-card-content>
+</mat-card>
