@@ -80,7 +80,7 @@
     <mat-sidenav-content class="app-content">
       <app-dashboard-header
         [sidenav]="sidenav"
-        [usuarioLogado]="usuarioLogado"
+        [usuarioLogado]="usuarioLogado()"
         (logout)="onLogout()"
       />
       <mat-divider />
@@ -90,14 +90,14 @@
         <div class="main__top">
           <div class="main__top-left--content">
             <p><a href="/dashboard">Início</a> > Dashboard</p>
-            <p class="main__top-nome">Olá, {{ usuarioLogado!.nome }}</p>
-            <p class="main__top-perfil-desc" >Perfil {{ usuarioLogado!.perfil }} · visão geral das quadras sob sua responsabilidade.</p>
+            <p class="main__top-nome">Olá, {{ usuarioLogado()!.nome }}</p>
+            <p class="main__top-perfil-desc" >Perfil {{ usuarioLogado()!.perfil }} · visão geral das quadras sob sua responsabilidade.</p>
           </div>
           <a class="main__top-button" matButton="filled" href="/relatorios">Ver relatórios</a>
         </div>
 
         <div class="main__cards">
-          @for (card of cardsVisiveis; track $index) {
+          @for (card of cardsVisiveis(); track $index) {
             <app-dashboard-card
               [title]="card.title"
               [value]="card.value"
@@ -105,10 +105,18 @@
               [subtitle]="card.subtitle"
             />
           }
+        </div>
 
+        <div class="main__charts">
+          <app-dashboard-grafico-horas-esporte
+            [grades]="gradesDoUsuario()"
+          />
+
+          <app-dashboard-grafico-consumo-mensal-ocupacao
+            [dadosConsumo]="dadosConsumoMensalOcupacaoQuadra()"
+          />
         </div>
       </div>
-      
       <mat-divider />
       <app-footer />
     </mat-sidenav-content>
