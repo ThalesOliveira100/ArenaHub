@@ -91,7 +91,7 @@
       "imagemUrl": "https://www.granjanews.com.br/wp-content/uploads/2019/01/quadra-luzes-jardim-vargem-grande-660x330.jpg",
       "status": "ATIVA",
       "esportes": [
-        "Futebol Society"
+        "Futebol"
       ],
       "gestorId": 3,
       "monitorId": 5
@@ -297,7 +297,7 @@
       "diaDaSemana": 6,
       "horaInicio": "16:00",
       "horaFinal": "17:30",
-      "esporte": "Futebol Society",
+      "esporte": "Futebol",
       "preco": 200.00,
       "solicitanteNome": "Lucas Santos"
     }
