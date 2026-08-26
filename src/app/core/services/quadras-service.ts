@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { environment } from '../../../environments/environments.prod';
+import { environment } from '../../../environments/environments.template';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Quadra } from '../models/quadra.model';

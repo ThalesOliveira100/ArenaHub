@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { environment } from '../../../environments/environments.prod';
+import { environment } from '../../../environments/environments.template';
 import { Observable } from 'rxjs';
 import { GradeHorario } from '../models/grade-horario.model';
 import { HttpClient } from '@angular/common/http';

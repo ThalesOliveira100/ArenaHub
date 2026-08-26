@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { environment } from '../../../environments/environments.prod';
+import { environment } from '../../../environments/environments.template';
 import { Observable, of } from 'rxjs';
 import { RelatorioConsumo } from '@core/models/relatorio-consumo.model';
 

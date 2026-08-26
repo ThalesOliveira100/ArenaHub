@@ -2,7 +2,7 @@ import { Usuario } from './../models/usuario.model';
 import { Injectable, inject, signal, computed } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap, map, catchError, throwError } from 'rxjs';
-import { environment } from '../../../environments/environments.prod';
+import { environment } from '../../../environments/environments.template';
 
 @Injectable({
   providedIn: 'root'
