@@ -6,13 +6,13 @@
 
   <section class="buttons">
       <a
-        href="/quadras"
+        [routerLink]="['/quadras']"
         matButton="filled"
         class="button-quadras"
         >Ver quadras disponíveis <mat-icon>arrow_forward</mat-icon>
       </a>
       <a
-        href="/login"
+        [routerLink]="['/login']"
         matButton="outlined"
         class="button-acesso"
         >Acesso da equipe
@@ -20,12 +20,10 @@
     </section>
   </section>
 
-
-
   <section class="main-cards">
     <app-basic-card
       [icon]="'pin_drop'"
-      [title]="quantQuadrasCadastradas.toString()"
+      [title]="getQuantQuadrasCadastradas().toString()"
       [desc]="'Quadras cadastradas'"
       [cardColor]="'#173d30'"
       [cardWidth]="'43vw'"
@@ -91,6 +89,5 @@
       [cardTitleFontSize]="'1rem'"
       [cardBorder]="'solid 1px #dae0d9'"
     />
-
   </div>
 </section>
