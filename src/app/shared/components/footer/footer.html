@@ -1,4 +1,6 @@
 <footer>
-  <span>ArenaHub - Gestão Esportiva - © Thales Inc. 2026</span>
-  <a class="footer--link" href="/login">Área restrita</a>
+  <span>ArenaHub - Gestão Esportiva - © Thales Tech Inc. 2026</span>
+  <a class="footer--link" [routerLink]="footerConfig().link">
+    {{ footerConfig().text }}
+  </a>
 </footer>
