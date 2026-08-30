@@ -5,6 +5,7 @@
     flex-direction: row;
     justify-content: space-between;
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.3);
+    height: 130px;
 
     .card-left__content {
       mat-card-subtitle {
@@ -21,6 +22,8 @@
       mat-card-content {
         color: gray;
         font-size: smaller;
+        width: 100%;
+        overflow: visible;
       }
     }
 
@@ -49,8 +52,7 @@
 @media screen and (width >= 1280px) {
   .dash-card__content {
     mat-card {
-      max-width: 180px;
-      height: 130px;
+      max-width: 100%;
     }
   }
 }
