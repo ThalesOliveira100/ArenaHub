@@ -11,6 +11,8 @@ import { Footer } from "@shared/components/footer/footer";
 import { CardArenaNotFound } from '@shared/components/card-arena-not-found/card-arena-not-found';
 import { QuadrasService } from '../../../core/services/quadras-service';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { RouterLink } from "@angular/router";
+import { AutenticacaoService } from '@core/auth/autenticacao.service';
 
 const MODULES = [
   MatButtonModule,
@@ -33,6 +35,7 @@ const COMPONENTS = [
   imports: [
     ...MODULES,
     ...COMPONENTS,
+    RouterLink
 ],
   templateUrl: './quadras.html',
   styleUrl: './quadras.scss',
@@ -42,6 +45,7 @@ export class Quadras {
   protected todasQuadras = toSignal(this.quadrasService.getQuadras(), {initialValue: []});
   protected termoBusca = signal('');
   protected regiaoSelecionada = signal('');
+  private authService = inject(AutenticacaoService);
 
   protected readonly quadrasFiltradas = computed(() => {
     const termo = this.termoBusca().toLowerCase().trim();
@@ -70,4 +74,10 @@ export class Quadras {
     const regioes = this.todasQuadras().map(quadra => quadra.regiao);
     return [...new Set(regioes)];
   })
+
+  protected readonly usuarioEhLogado = computed(() => {
+    const logado = !!this.authService.estaLogado();
+
+    return logado ? '/dashboard' : '/login';
+  });
 }
