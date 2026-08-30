@@ -5,8 +5,8 @@
     <span class="spacer"></span>
 
     <div class="header--content-right">
-      <a class="header--link-quadras" href="./quadras" matButton>Quadras</a>
-      <a class="header--login" href="./login" matButton="filled">Entrar</a>
+      <a class="header--link-quadras" [routerLink]="'/quadras'" matButton>Quadras</a>
+      <a class="header--login" [routerLink]="headerConfig().link" matButton="filled">{{ headerConfig().text }}</a>
     </div>
   </mat-toolbar>
 </header>
