@@ -1,17 +1,17 @@
 <div class="dash-header__content">
   <mat-toolbar>
-    <button class="dash-header__menu-button" mat-icon-button (click)="(sidenav().toggle())">
-      <mat-icon>menu</mat-icon>
-    </button>
+    <div class="header__left">
+      <button class="dash-header__menu-button" mat-icon-button (click)="(sidenav().toggle())">
+        <mat-icon>menu</mat-icon>
+      </button>
 
-    <section class="dashboard-header__app-title">
-      <p class="app-title">ArenaHub</p>
-      <p class="app-subtitle">Gestão de quadras, horários, patrimônio e eventos</p>
-    </section>
+      <section class="dashboard-header__app-title">
+        <p class="app-title">ArenaHub</p>
+        <p class="app-subtitle">Gestão de quadras, horários, patrimônio e eventos</p>
+      </section>
+    </div>
 
-    <div class="spacer"></div>
-
-    <div class="dash-header__left-content">
+    <div class="dash-header__right-content">
       <button class="dash-header__notif-button" mat-icon-button matBadge="3">
         <mat-icon>notifications</mat-icon>
       </button>
@@ -19,7 +19,9 @@
       <button
         mat-icon-button
         class="dashboard-header__user"
-        [matMenuTriggerFor]="menu">{{ usuarioLogado()?.nome | iniciais }}</button>
+        [matMenuTriggerFor]="menu">{{ usuarioLogado()?.nome | iniciais }}
+      </button>
+      
       <mat-menu #menu="matMenu">
         <section>
           <p>{{usuarioLogado()!.nome}}</p>

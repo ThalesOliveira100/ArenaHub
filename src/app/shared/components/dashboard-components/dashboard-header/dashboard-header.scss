@@ -16,11 +16,33 @@
     flex-direction: row;
     justify-content: space-between;
 
-    .spacer {
-      width: 20%;
+    .header__left {
+      display: flex;
+      align-items: center;
+      width: 65%;
+
+      .dashboard-header__app-title {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        line-height: 1rem;
+        width: 85%;
+
+        .app-title {
+          font-weight: 500;
+          font-size: 1rem;
+        }
+
+        .app-subtitle {
+          color: gray;
+          font-size: 0.8rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
     }
 
-    .dash-header__left-content {
+    .dash-header__right-content {
       display: flex;
       flex-direction: row;
       gap: 1rem;
@@ -36,7 +58,6 @@
       }
     }
 
-
     .dashboard-header__user {
       background-color: #007f53;
       border: 3px solid transparent;;
@@ -50,25 +71,16 @@
     .dashboard-header__user:hover {
       border-color: rgb(212, 190, 147);
     }
+  }
+}
 
-    .dashboard-header__app-title {
-      display: flex;
-      flex-direction: column;
-      height: fit-content;
-      line-height: 1rem;
-      width: 56%;
-
-      .app-title {
-        font-weight: 500;
-        font-size: 1rem;
-      }
-
-      .app-subtitle {
-        color: gray;
-        font-size: 0.8rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+@media screen and (width >= 375px) {
+  .dash-header__content {
+    mat-toolbar {
+      .header__left {
+        .dashboard-header__app-title {
+          width: 100%;
+        }
       }
     }
   }
