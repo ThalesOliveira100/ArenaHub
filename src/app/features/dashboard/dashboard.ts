@@ -167,7 +167,6 @@ export class Dashboard {
   ])
 
   onSideBarButtonClick():void {
-    console.log(this.quadrasPorUsuario());
   }
 
   onLogout(): void {

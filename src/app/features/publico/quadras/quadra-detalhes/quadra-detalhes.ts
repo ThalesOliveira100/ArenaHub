@@ -12,6 +12,7 @@ import { QuadraGradeHorarios } from "./quadra-grade-horarios/quadra-grade-horari
 import { QuadrasService } from '@core/services/quadras-service';
 import { GradeHorarioService } from '@core/services/grade-horario-service';
 import { AutenticacaoService } from '@core/auth/autenticacao.service';
+import { Quadra } from '@core/models/quadra.model';
 
 const MODULES = [
   MatDividerModule,
@@ -45,13 +46,12 @@ export class QuadraDetalhes implements OnInit {
   private authService = inject(AutenticacaoService);
 
   quadraId = Number(this.route.snapshot.paramMap.get('id'));
-  quadra = signal<any>(null);
   gradeHorarios = signal<any[]>([]);
+  quadra = signal<Quadra>({} as Quadra);
 
   ngOnInit(): void {
-    console.log(this.quadraId)
     this.quadrasService.getQuadraPorId(this.quadraId).subscribe(dados => this.quadra.set(dados));
-    this.gradeHorarioService.getGradeHorarios().subscribe(dados => this.gradeHorarios.set(dados));
+    this.gradeHorarioService.getGradeHorariosPorId(this.quadraId).subscribe(dados => this.gradeHorarios.set(dados));
   }
 
   protected readonly usuarioEhLogado = computed(() => {
