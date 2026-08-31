@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { Perfil } from './core/models/perfil.model';
 import { perfilGuard } from './core/auth/perfil.guard';
 
 export const routes: Routes = [
@@ -13,6 +12,53 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     loadComponent: () => import('@features/dashboard/dashboard').then(m => m.Dashboard),
-    canActivate: [perfilGuard]
+    canActivate: [perfilGuard],
+    children: [
+      {
+        path: "",
+        redirectTo: "geral",
+        pathMatch: "full"
+      },
+      {
+        path: 'geral',
+        loadComponent: () => import('@features/dashboard/pages/dashboard-geral/dashboard-geral').then(m => m.DashboardGeral)
+      },
+      {
+        path: 'quadras',
+        loadComponent: () => import('@features/dashboard/pages/dashboard-quadras/dashboard-quadras').then(m => m.DashboardQuadras)
+      },
+      {
+        path: 'horarios',
+        loadComponent: () => import('@features/dashboard/pages/dashboard-horarios/dashboard-horarios').then(m => m.DashboardHorarios)
+      },
+      {
+        path: 'eventos',
+        loadComponent: () => import('@features/dashboard/pages/dashboard-eventos/dashboard-eventos').then(m => m.DashboardEventos)
+      },
+      {
+        path: 'patrimonio',
+        loadComponent: () => import('@features/dashboard/pages/dashboard-patrimonio/dashboard-patrimonio').then(m => m.DashboardPatrimonio)
+      },
+      {
+        path: 'solicitacoes',
+        loadComponent: () => import('@features/dashboard/pages/dashboard-solicitacoes/dashboard-solicitacoes').then(m => m.DashboardSolicitacoes)
+      },
+      {
+        path: 'multas',
+        loadComponent: () => import('@features/dashboard/pages/dashboard-multas/dashboard-multas').then(m => m.DashboardMultas)
+      },
+      {
+        path: 'relatorios',
+        loadComponent: () => import('@features/dashboard/pages/dashboard-relatorios/dashboard-relatorios').then(m => m.DashboardRelatorios)
+      },
+      {
+        path: 'perfil',
+        loadComponent: () => import('@features/dashboard/pages/dashboard-perfil/dashboard-perfil').then(m => m.DashboardPerfil)
+      },
+      {
+        path: 'config',
+        loadComponent: () => import('@features/dashboard/pages/dashboard-config/dashboard-config').then(m => m.DashboardConfig)
+      }
+    ]
   },
 ];
