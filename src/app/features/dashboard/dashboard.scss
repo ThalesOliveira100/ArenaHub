@@ -49,15 +49,13 @@
     }
   }
 
-  .app-content {
-    .main-content {
-      padding: 1.5rem 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
+  .main-content {
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 
-    .main__top {
+    .main__info {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -71,29 +69,15 @@
         color: black;
       }
 
-      .main__top-nome {
+      .main__titulo {
         font-size: x-large;
         font-weight: 700;
         line-height: 2rem;
       }
 
-      .main__top-perfil-desc {
+      .main__desc {
         color: #616c63;
       }
-
-      .main__top-button {
-        width: 165px;
-        background-color: #007f53;
-        border-radius: 0.75rem;
-        font-weight: 500;
-        color: white;
-      }
-    }
-
-    .main__cards, .main__charts {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
     }
   }
 }
@@ -104,63 +88,11 @@
       width: 255px;
       border-radius: 0;
     }
-
-    .app-content {
-      .main-content {
-        padding: 1.5rem 2rem;
-
-        .main__top {
-          display: flex;
-          flex-direction: row;
-          align-items: end;
-        }
-
-        .main__cards {
-          flex-direction: row;
-          flex-wrap: wrap;
-
-          app-dashboard-card {
-            width: 48%;
-            height: max;
-          }
-        }
-      }
-    }
   }
 }
 
-@media screen and (width >= 1024px) {
-  .sidenav-container {
-    .app-content {
-      .main-content {
-        .main__charts {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-
-          app-dashboard-grafico-horas-esporte, app-dashboard-grafico-consumo-mensal-ocupacao {
-            width: 48.5%;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (width >= 1280px) {
-  .sidenav-container {
-    .app-content {
-      .main-content {
-        margin: 1rem;
-
-        .main__cards {
-          flex-direction: row;
-          flex-wrap: nowrap;
-          justify-content: space-between;
-          // gap:0.5rem;
-
-        }
-      }
-    }
+@media screen and (width >= 768px) {
+  .main__desc {
+    width: 60%;
   }
 }

@@ -87,35 +87,18 @@
 
       <!-- Main View Content Goes Here -->
       <div class="main-content">
-        <div class="main__top">
-          <div class="main__top-left--content">
-            <p><a [routerLink]="'/dashboard'">Início</a> > Dashboard</p>
-            <p class="main__top-nome">Olá, {{ usuarioLogado()!.nome }}</p>
-            <p class="main__top-perfil-desc" >Perfil {{ usuarioLogado()!.perfil }} · visão geral das quadras sob sua responsabilidade.</p>
-          </div>
-          <a class="main__top-button" matButton="filled" [routerLink]="'/relatorios'">Ver relatórios</a>
+
+        <div class="main__info">
+          <p>
+            <a [routerLink]="['/dashboard/geral']" class="breadcrumb-link">Início ></a>
+            {{ headerService.janelaAtual() }}
+          </p>
+          <h1 class="main__titulo">{{ headerService.titulo() }}</h1>
+          <p class="main__desc">{{ headerService.descricao() }}</p>
         </div>
 
-        <div class="main__cards">
-          @for (card of cardsVisiveis(); track $index) {
-            <app-dashboard-card
-              [title]="card.title"
-              [value]="card.value"
-              [icon]="card.icon"
-              [subtitle]="card.subtitle"
-            />
-          }
-        </div>
+        <router-outlet />
 
-        <div class="main__charts">
-          <app-dashboard-grafico-horas-esporte
-            [grades]="gradesDoUsuario()"
-          />
-
-          <app-dashboard-grafico-consumo-mensal-ocupacao
-            [dadosConsumo]="dadosConsumoMensalOcupacaoQuadra()"
-          />
-        </div>
       </div>
       <mat-divider />
       <app-footer />
