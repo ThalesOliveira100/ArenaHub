@@ -13,27 +13,27 @@
       <section class="nav-lists">
         <mat-nav-list>
           <span class="nav-list-title">Operação</span>
-          <a mat-list-item href="/dashboard">
+          <a mat-list-item [routerLink]="'/dashboard'">
             <mat-icon matListItemMeta>dashboard</mat-icon>
             <span class="nav-text">Dashboard</span>
           </a>
 
-          <a mat-list-item href="/quadras">
+          <a mat-list-item [routerLink]="'/dashboard/quadras'">
             <mat-icon matListItemMeta>pin_drop</mat-icon>
             <span class="nav-text">Quadras</span>
           </a>
 
-          <a mat-list-item href="/horarios">
+          <a mat-list-item [routerLink]="'/dashboard/horarios'">
             <mat-icon matListItemMeta>timer</mat-icon>
             <span class="nav-text">Horários</span>
           </a>
 
-          <a mat-list-item href="/eventos">
+          <a mat-list-item [routerLink]="'/dashboard/eventos'">
             <mat-icon matListItemMeta>calendar_month</mat-icon>
             <span class="nav-text">Eventos</span>
           </a>
 
-          <a mat-list-item href="/patrimonio">
+          <a mat-list-item [routerLink]="'/dashboard/patrimonio'">
             <mat-icon matListItemMeta>storage</mat-icon>
             <span class="nav-text">Patrimônio</span>
           </a>
@@ -43,17 +43,17 @@
       <section class="nav-lists">
         <mat-nav-list>
           <span class="nav-list-title">Gestão</span>
-          <a mat-list-item href="/dashboard">
+          <a mat-list-item [routerLink]="'/dashboard/solicitacoes'">
             <mat-icon matListItemMeta>event_note</mat-icon>
             <span class="nav-text">Solicitações</span>
           </a>
 
-          <a mat-list-item href="/quadras">
+          <a mat-list-item [routerLink]="'/dashboard/multas'">
             <mat-icon matListItemMeta>description</mat-icon>
             <span class="nav-text">Multas</span>
           </a>
 
-          <a mat-list-item href="/horarios">
+          <a mat-list-item [routerLink]="'/dashboard/relatorios'">
             <mat-icon matListItemMeta>monitoring</mat-icon>
             <span class="nav-text">Relatórios</span>
           </a>
@@ -63,12 +63,12 @@
       <section class="nav-lists">
         <mat-nav-list>
           <span class="nav-list-title">Conta</span>
-          <a mat-list-item href="/dashboard">
+          <a mat-list-item [routerLink]="'/dashboard/perfil'">
             <mat-icon matListItemMeta>person</mat-icon>
             <span class="nav-text">Perfil</span>
           </a>
 
-          <a mat-list-item href="/quadras">
+          <a mat-list-item [routerLink]="'/dashboard/config'">
             <mat-icon matListItemMeta>settings</mat-icon>
             <span class="nav-text">Configurações</span>
           </a>
@@ -89,11 +89,11 @@
       <div class="main-content">
         <div class="main__top">
           <div class="main__top-left--content">
-            <p><a href="/dashboard">Início</a> > Dashboard</p>
+            <p><a [routerLink]="'/dashboard'">Início</a> > Dashboard</p>
             <p class="main__top-nome">Olá, {{ usuarioLogado()!.nome }}</p>
             <p class="main__top-perfil-desc" >Perfil {{ usuarioLogado()!.perfil }} · visão geral das quadras sob sua responsabilidade.</p>
           </div>
-          <a class="main__top-button" matButton="filled" href="/relatorios">Ver relatórios</a>
+          <a class="main__top-button" matButton="filled" [routerLink]="'/relatorios'">Ver relatórios</a>
         </div>
 
         <div class="main__cards">

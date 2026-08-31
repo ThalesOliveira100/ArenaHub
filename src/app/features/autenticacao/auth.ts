@@ -6,7 +6,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { Logo } from "@shared/components/logo/logo";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AutenticacaoService } from '../../core/auth/autenticacao.service';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
@@ -33,7 +33,8 @@ const COMPONENTS = [
   imports: [
     MODULES,
     COMPONENTS,
-  ],
+    RouterLink
+],
   templateUrl: './auth.html',
   styleUrl: './auth.scss',
 })
