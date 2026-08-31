@@ -56,20 +56,20 @@
       .dash-header__notif-button:hover {
         background-color: orange;
       }
-    }
 
-    .dashboard-header__user {
-      background-color: #007f53;
-      border: 3px solid transparent;;
-      border-radius: 2rem;
-      color: white;
-      font-weight: 500;
-      font-size: 0.7rem;
-      width: 2.5rem;
-    }
+      .dashboard-header__user {
+        background-color: #007f53;
+        border: 3px solid transparent;;
+        border-radius: 2rem;
+        color: white;
+        font-weight: 500;
+        font-size: 0.7rem;
+        width: 2.5rem;
+      }
 
-    .dashboard-header__user:hover {
-      border-color: rgb(212, 190, 147);
+      .dashboard-header__user:hover {
+        border-color: rgb(212, 190, 147);
+      }
     }
   }
 }
@@ -83,5 +83,23 @@
         }
       }
     }
+  }
+}
+
+.menu__dados-user {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1rem;
+  width: 210px;
+
+  .menu__nome {
+    font-weight: 500;
+    font-size: small;
+  }
+
+  .menu__perfil {
+    font-weight: 300;
+    font-size: small;
+    color: gray;
   }
 }

@@ -8,6 +8,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDivider } from "@angular/material/divider";
 import { Usuario } from '@core/models/usuario.model';
 import { IniciaisPipe } from '@shared/pipes/iniciais.pipe';
+import { RouterLink } from "@angular/router";
 
 const MODULES = [
   MatSidenavModule,
@@ -17,14 +18,15 @@ const MODULES = [
   MatIconModule,
   MatSidenavModule,
   MatMenuModule,
-  MatDivider
+  MatDivider,
+  RouterLink
 ]
 
 @Component({
   selector: 'app-dashboard-header',
   imports: [
     MODULES,
-    IniciaisPipe
+    IniciaisPipe,
 ],
   templateUrl: './dashboard-header.html',
   styleUrl: './dashboard-header.scss',

@@ -12,7 +12,8 @@
     </div>
 
     <div class="dash-header__right-content">
-      <button class="dash-header__notif-button" mat-icon-button matBadge="3">
+      <!-- Desabilitado o botão de notificação, já que não foi implementado ainda -->
+      <button class="dash-header__notif-button" mat-icon-button disabled="" matBadge="">
         <mat-icon>notifications</mat-icon>
       </button>
 
@@ -21,15 +22,26 @@
         class="dashboard-header__user"
         [matMenuTriggerFor]="menu">{{ usuarioLogado()?.nome | iniciais }}
       </button>
-      
-      <mat-menu #menu="matMenu">
-        <section>
-          <p>{{usuarioLogado()!.nome}}</p>
-          <p>{{usuarioLogado()!.perfil}}</p>
-        </section>
-        <mat-divider />
-        <a mat-menu-item>Meu Perfil</a>
-        <button mat-menu-item (click)="logout.emit()">Sair</button>
+
+      <mat-menu #menu="matMenu" class="menu">
+          <section class="menu__dados-user">
+            <p class="menu__nome">{{usuarioLogado()!.nome}}</p>
+            <p class="menu__perfil" >{{usuarioLogado()!.perfil}}</p>
+          </section>
+
+          <mat-divider />
+
+          <a
+            mat-menu-item
+            [routerLink]="'/perfil'"
+            >
+            <mat-icon>person</mat-icon>
+            Meu Perfil
+          </a>
+          <button mat-menu-item (click)="logout.emit()">
+            <mat-icon>logout</mat-icon>
+            Sair
+          </button>
       </mat-menu>
     </div>
 
