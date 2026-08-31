@@ -50,7 +50,11 @@ export class AutenticacaoService {
 
   // Método auxiliar útil para carregar dinamicamente as contas de teste na UI
   obterUsuariosTeste(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(`${this.apiUrl}/usuarios`);
+    return this.http.get<Usuario[]>(`${this.apiUrl}/usuarios`).pipe(
+      map((usuarios: Usuario[]) =>
+        usuarios.filter(usuario => usuario.perfil !== 'PUBLICO')
+      )
+    );
   }
 
   private recuperarSessaoSalva(): Usuario | null {
