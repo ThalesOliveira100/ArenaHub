@@ -1,0 +1,58 @@
+.dashboard-geral__container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .main__cards, .main__charts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media screen and (width >= 640px) {
+  .dashboard-geral__container {
+    .main__top {
+      align-self: flex-end;
+      position: relative;
+      z-index: 10;
+      margin: 0 1rem;
+      margin-top: -60px;
+    }
+
+    .main__cards {
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      app-dashboard-card {
+        width: 48%;
+        height: max;
+      }
+    }
+  }
+
+}
+
+@media screen and (width >= 1024px) {
+  .dashboard-geral__container {
+    .main__charts {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      app-dashboard-grafico-horas-esporte, app-dashboard-grafico-consumo-mensal-ocupacao {
+        width: 48.5%;
+      }
+    }
+  }
+}
+
+@media screen and (width >= 1280px) {
+  .dashboard-geral__container {
+    .main__cards {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+  }
+}

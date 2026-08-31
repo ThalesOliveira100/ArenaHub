@@ -1,0 +1,30 @@
+<div class="dashboard-geral__container">
+  <div class="main__top">
+    <app-basic-button
+      [link]="'../relatorios'"
+      [text]="'Ver Relatórios'"
+    />
+  </div>
+
+  <div class="main__cards">
+    @for (card of cardsVisiveis(); track $index) {
+      <app-dashboard-card
+        [title]="card.title"
+        [value]="card.value"
+        [icon]="card.icon"
+        [subtitle]="card.subtitle"
+      />
+    }
+  </div>
+
+  <div class="main__charts">
+    <app-dashboard-grafico-horas-esporte
+      [grades]="gradesDoUsuario()"
+    />
+
+    <app-dashboard-grafico-consumo-mensal-ocupacao
+      [dadosConsumo]="dadosConsumoMensalOcupacaoQuadra()"
+    />
+  </div>
+</div>
+
