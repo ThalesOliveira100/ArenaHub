@@ -8,17 +8,17 @@ import { MatNavList, MatDivider } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Logo } from '@shared/components/logo/logo';
-import { DashboardHeader } from "@shared/components/dashboard-components/dashboard-header/dashboard-header";
+import { DashboardHeader } from "@features/dashboard/components/dashboard-header/dashboard-header";
 import { AutenticacaoService } from '@core/auth/autenticacao.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Footer } from "@shared/components/footer/footer";
-import { DashboardCard } from '@shared/components/dashboard-components/dashboard-card/dashboard-card';
+import { DashboardCard } from '@features/dashboard/components/dashboard-card/dashboard-card';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { forkJoin, map, of, switchMap } from 'rxjs';
-import { DashboardGraficoHorasEsporte } from "@shared/components/dashboard-components/dashboard-grafico-horas-esporte/dashboard-grafico-horas-esporte";
+import { DashboardGraficoHorasEsporte } from "@features/dashboard/components/dashboard-grafico-horas-esporte/dashboard-grafico-horas-esporte";
 import { GradeHorarioService } from '@core/services/grade-horario-service';
-import { DashboardGraficoConsumoMensalOcupacao } from "@shared/components/dashboard-components/dashboard-grafico-consumo-mensal-ocupacao/dashboard-grafico-consumo-mensal-ocupacao";
+import { DashboardGraficoConsumoMensalOcupacao } from "@features/dashboard/components/dashboard-grafico-consumo-mensal-ocupacao/dashboard-grafico-consumo-mensal-ocupacao";
 
 const MODULES = [
   MatIcon,
@@ -44,6 +44,7 @@ const COMPONENTS = [
   imports: [
     MODULES,
     COMPONENTS,
+    RouterLink
 ],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
