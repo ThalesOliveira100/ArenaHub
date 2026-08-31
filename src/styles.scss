@@ -19,6 +19,12 @@ html {
       density: 0,
     )
   );
+  @include mat.menu-overrides(
+    (
+      container-shape: 12px,
+      container-color: white,
+    )
+  );
 }
 
 body {
