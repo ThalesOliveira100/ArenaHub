@@ -12,6 +12,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { BasicButton } from '@shared/components/basic-button/basic-button';
 import { HeaderService } from '@core/services/header-service';
 import { AutenticacaoService } from '@core/auth/autenticacao.service';
+import { DashboardTable } from "@features/dashboard/components/dashboard-table/dashboard-table";
+import { EventosService } from '@core/services/eventos-service';
+import { Evento } from '@core/models/evento.model';
 
 const MODULES = [
   MatButtonModule,
@@ -29,7 +32,8 @@ const COMPONENTS = [
   imports: [
     MODULES,
     COMPONENTS,
-  ],
+    DashboardTable
+],
   templateUrl: './dashboard-geral.html',
   styleUrl: './dashboard-geral.scss',
 })
@@ -39,9 +43,9 @@ export class DashboardGeral implements OnInit {
   private quadrasService = inject(QuadrasService);
   private gradesService = inject(GradeHorarioService);
   private relatoriosConsumoService = inject(RelatoriosConsumoService);
+  private eventosService = inject(EventosService);
 
   protected readonly usuarioLogado = this.authService.usuarioLogado as Signal<Usuario>;
-
 
   ngOnInit(): void {
     const nome = this.usuarioLogado().nome || 'Usuário';
@@ -53,6 +57,49 @@ export class DashboardGeral implements OnInit {
       `Perfil ${perfil} · visão geral das quadras sob sua responsabilidade.`
     )
   }
+
+  protected readonly eventosDoUsuario = toSignal(
+    toObservable(this.usuarioLogado).pipe(
+      switchMap((usuario) => {
+        if (!usuario || !usuario.id) {
+          return of([]);
+        }
+
+        if (usuario.perfil === 'ADMIN') {
+          return this.eventosService.getEventos();
+        }
+
+        const quadras = this.quadrasPorUsuario();
+        if (quadras.length === 0) {
+          return of([]);
+        }
+
+        const ids = quadras.map((q) => q.id);
+        const requests = ids.map(id => this.eventosService.getEventosPorQuadra(id));
+
+        return forkJoin(requests).pipe(
+          map(resultados => resultados.flat())
+        );
+      }),
+    ),
+    { initialValue: [] },
+  );
+
+  protected readonly eventosFormatados = computed(() => {
+    const eventos = this.eventosDoUsuario();
+    const quadras = this.quadrasPorUsuario();
+
+    if (!eventos || eventos.length === 0) return [];
+
+    return eventos.map(evento => {
+      const quadra = quadras.find(q => q.id === evento.quadraId);
+
+      return {
+        ...evento,
+        nomeQuadra: quadra ? quadra.nome : `Quadra (ID: ${evento.quadraId})`
+      };
+    });
+  });
 
   protected readonly quadrasPorUsuario = toSignal(
     toObservable(this.usuarioLogado).pipe(
