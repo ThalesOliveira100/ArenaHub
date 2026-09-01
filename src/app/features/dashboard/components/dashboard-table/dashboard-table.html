@@ -1,0 +1,81 @@
+<mat-card class="card-table__container">
+  <mat-card-header class="card-table__header">
+    <mat-card-title class="card-table__title">Próximos eventos</mat-card-title>
+    <a
+      [routerLink]="'../eventos'"
+      matButton
+      class="card-table__subtitle"
+      >
+      <mat-icon>visibility</mat-icon>
+      Ver todos</a>
+  </mat-card-header>
+
+  <mat-card-content class="card-table__content">
+    @if (eventos().length > 0) {
+      <div class="table-container">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z0 custom-table">
+
+            <!-- Coluna Título (Evento) -->
+            <ng-container matColumnDef="titulo">
+              <th mat-header-cell *matHeaderCellDef> Evento </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.titulo }}
+              </td>
+            </ng-container>
+
+            <!-- Coluna Data -->
+            <ng-container matColumnDef="data">
+              <th mat-header-cell *matHeaderCellDef> Data </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.data | date:'dd/MM/yyyy' : 'UTC' }} · {{ element.horaInicio }} / {{ element.horaFinal }}
+              </td>
+            </ng-container>
+
+            <!-- Coluna Horário -->
+            <ng-container matColumnDef="modalidade">
+              <th mat-header-cell *matHeaderCellDef> Modalidade </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.modalidade }}
+              </td>
+            </ng-container>
+
+            <!-- Coluna Quadra -->
+            <ng-container matColumnDef="nomeQuadra">
+              <th mat-header-cell *matHeaderCellDef> Quadra </th>
+              <td mat-cell *matCellDef="let element">
+                  {{ element.nomeQuadra }}
+              </td>
+            </ng-container>
+
+            <!-- Coluna Publico -->
+            <ng-container matColumnDef="publico">
+              <th mat-header-cell *matHeaderCellDef> Público </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.publicoEsperado }}
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+
+          <mat-paginator
+            [pageSize]="5"
+            [pageSizeOptions]="[5, 10, 15]"
+            showFirstLastButtons
+            aria-label="Selecione a página de eventos"
+            class="custom-paginator"
+          >
+          </mat-paginator>
+      </div>
+    } @else {
+      <div class="empty-state">
+        <mat-icon class="empty-state__icon">calendar_today</mat-icon>
+        <p class="empty-state__text">Nenhum evento agendado</p>
+        <p class="empty-state__subtext">
+          Não há eventos previstos para as quadras associadas ao seu perfil no momento.
+        </p>
+      </div>
+    }
+  </mat-card-content>
+</mat-card>
