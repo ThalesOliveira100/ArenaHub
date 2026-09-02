@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, effect, input, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, effect, Input, input, ViewChild} from '@angular/core';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { MatCardModule } from "@angular/material/card";
@@ -15,7 +15,16 @@ import { DatePipe } from '@angular/common';
   styleUrl: './dashboard-table.scss',
 })
 export class DashboardTable {
-  eventos = input.required<Evento[]>();
+  private _eventos: Evento[] = [];
+
+  @Input() set eventos(value: Evento[]) {
+    this._eventos = value || [];
+    this.dataSource.data = this._eventos;
+  }
+
+  get eventos(): Evento[] {
+    return this._eventos;
+  }
 
   displayedColumns: string[] = ['titulo', 'data', 'modalidade', 'nomeQuadra', 'publico'];
 
@@ -25,15 +34,5 @@ export class DashboardTable {
     if (value) {
       this.dataSource.paginator = value;
     }
-  }
-
-  constructor() {
-    effect(() => {
-      this.dataSource.data = this.eventos();
-    });
-  };
-
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
   }
 }
