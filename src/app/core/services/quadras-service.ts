@@ -18,6 +18,11 @@ export class QuadrasService {
     return this.http.get<Quadra[]>(url);
   }
 
+  getQuadrasAtivas(): Observable<Quadra[]> {
+    const url = `${this.apiUrl}/quadras?status=ATIVA`;
+    return this.http.get<Quadra[]>(url);
+  }
+
   getQuadraPorId(id: number): Observable<Quadra> {
     return this.http.get<Quadra>(`${this.apiUrl}/quadras/${id}`);
   }
