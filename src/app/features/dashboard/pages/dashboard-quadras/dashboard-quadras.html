@@ -1,1 +1,12 @@
-<p>dashboard-quadras works!</p>
+<div class="quadras-content">
+  <app-search-bar
+    [label]="'Buscar quadra ou região'"
+  />
+
+  <app-basic-grade
+    [colunas]="colunasConfig"
+    [dados]="quadras()"
+    [permissoes]="permissoes()"
+    (acaoDisparada)="onAcaoExecutada($event)"
+  />
+</div>
