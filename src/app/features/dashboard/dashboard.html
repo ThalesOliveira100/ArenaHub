@@ -97,6 +97,22 @@
           <p class="main__desc">{{ headerService.descricao() }}</p>
         </div>
 
+        @if (headerService.botaoConfig(); as btn) {
+          <div class="main__action-btn">
+            <button
+              mat-raised-button
+              [color]="btn.color || 'primary'"
+              (click)="btn.action()"
+              class="header-dynamic-btn"
+            >
+              @if (btn.icon) {
+                <mat-icon>{{ btn.icon }}</mat-icon>
+              }
+              {{ btn.label }}
+            </button>
+          </div>
+        }
+
         <router-outlet />
 
       </div>
