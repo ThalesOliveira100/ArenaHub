@@ -23,7 +23,7 @@
   <section class="main-cards">
     <app-basic-card
       [icon]="'pin_drop'"
-      [title]="getQuantQuadrasCadastradas().toString()"
+      [title]="quadras().length.toString()"
       [desc]="'Quadras cadastradas'"
       [cardColor]="'#173d30'"
       [cardWidth]="'43vw'"
@@ -32,7 +32,7 @@
 
     <app-basic-card
       [icon]="'timer'"
-      [title]="quantQuadrasAtivas.toString()"
+      [title]="quadrasAtivas().length.toString()"
       [desc]="'Quadras ativas'"
       [cardColor]="'#173d30'"
       [cardWidth]="'43vw'"
@@ -41,7 +41,7 @@
 
     <app-basic-card
       [icon]="'event_available'"
-      [title]="quantEventosAgendados.toString()"
+      [title]="totalEventos().toString()"
       [desc]="'Eventos programados'"
       [cardColor]="'#173d30'"
       [cardWidth]="'43vw'"
@@ -50,7 +50,7 @@
 
     <app-basic-card
       [icon]="'verified_user'"
-      [title]="quantPerfisDeAcesso.toString()"
+      [title]="usuarios().length.toString()"
       [desc]="'Perfis de acesso'"
       [cardColor]="'#173d30'"
       [cardWidth]="'43vw'"
