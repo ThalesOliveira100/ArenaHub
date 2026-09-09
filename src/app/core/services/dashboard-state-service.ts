@@ -6,6 +6,9 @@ import { computed, inject, Injectable } from '@angular/core';
 import { AutenticacaoService } from '@core/auth/autenticacao.service';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { forkJoin, map, of, switchMap } from 'rxjs';
+import { MultasService } from './multas-service';
+import { UsuarioService } from './usuarios-service';
+import { parseDataEHora } from '@core/utils/date.utils';
 
 @Injectable({
   providedIn: 'root',
@@ -15,13 +18,20 @@ export class DashboardStateService {
   private quadrasService = inject(QuadrasService);
   private gradesService = inject(GradeHorarioService);
   private eventosService = inject(EventosService);
+  private multasService = inject(MultasService);
+  private usuariosService = inject(UsuarioService);
   private relatoriosConsumoService = inject(RelatoriosConsumoService);
 
-  // Usuario
+  // Usuario logado
   public readonly usuarioLogado = this.authService.usuarioLogado;
+
+  // Usuários
+  public readonly todosOsUsuarios = toSignal(this.usuariosService.getUsuarios(), {initialValue: []});
 
   // Quadras
   public readonly todasAsQuadras = toSignal(this.quadrasService.getQuadras(), { initialValue: [] });
+
+  public readonly quadrasAtivas = toSignal(this.quadrasService.getQuadrasAtivas(), { initialValue: [] });
 
   public readonly quadrasPorUsuario = toSignal(
     toObservable(this.usuarioLogado).pipe(
@@ -104,6 +114,41 @@ export class DashboardStateService {
     { initialValue: [] },
   );
 
+  public readonly todosOsEventos = toSignal(this.eventosService.getEventos(), { initialValue: []});
+
+  public readonly eventosEmAndamento = computed(() => {
+    const lista = this.todosOsEventos();
+    if (!lista || lista.length === 0) return [];
+
+    const agora = new Date();
+
+    return lista.filter((evento) => {
+      if (!evento?.data || !evento?.horaInicio || !evento?.horaFinal) return false;
+
+      const inicio = parseDataEHora(evento.data, evento.horaInicio);
+      const fim = parseDataEHora(evento.data, evento.horaFinal);
+
+      return agora >= inicio && agora <= fim;
+    });
+  });
+
+  public readonly eventosFuturos = computed(() => {
+    const lista = this.todosOsEventos();
+    if (!lista || lista.length === 0) return [];
+
+    const agora = new Date();
+
+    return lista.filter(evento => {
+      if (!evento || !evento.data || !evento.horaFinal) return false;
+
+      const dataHoraFim = parseDataEHora(evento.data, evento.horaFinal);
+
+      return dataHoraFim >= agora;
+    });
+  });
+
+  public readonly quantidadeEventosFuturos = computed(() => this.eventosFuturos().length);
+
   public readonly eventosFormatados = computed(() => {
     const eventos = this.eventosDoUsuario();
     const quadras = this.todasAsQuadras();
@@ -119,4 +164,9 @@ export class DashboardStateService {
       };
     });
   });
+
+  // Multas
+  public readonly todasAsMultas = toSignal(this.multasService.getMultas(), { initialValue: [] });
+
+  public readonly multasPendentes = toSignal(this.multasService.getMultasPendentes(), { initialValue: [] });
 }
