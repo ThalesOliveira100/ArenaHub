@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
-import { environment } from '../../../environments/environments.template';
-import { Observable } from 'rxjs';
-import { GradeHorario } from '../models/grade-horario.model';
+import { environment } from '../../../../environments/environments.template';
+import { Observable, of } from 'rxjs';
+import { GradeHorario } from '../../models/grade-horario.model';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -19,8 +19,13 @@ export class GradeHorarioService {
     return this.http.get<GradeHorario[]>(`${this.apiUrl}/grade_horarios?quadraId=${quadraId}`);
   }
 
-  // getGradeHorariosPorGestorOuMonitor(idGestorMonitor: number): Observable<GradeHorario[]> {
-  //   const todasAsGrades = this.getGradeHorarios()
-  //   const gradesPorIdDoGestor = todasAsGrades.
-  // }
+  getGradesHorariosByQuadras(quadraIds: number[]): Observable<GradeHorario[]> {
+    if (!quadraIds || quadraIds.length === 0) {
+      return of([]);
+    }
+
+    const query = quadraIds.map(id => `quadraId=${id}`).join('&');
+
+    return this.http.get<GradeHorario[]>(`${this.apiUrl}/grade_horarios?${query}`);
+  }
 }

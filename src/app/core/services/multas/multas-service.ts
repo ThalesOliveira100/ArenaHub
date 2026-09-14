@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { environment } from '../../../environments/environments.template';
+import { environment } from '../../../../environments/environments.template';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Multa } from '@core/models/multa.model';

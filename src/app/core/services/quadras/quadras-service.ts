@@ -1,10 +1,8 @@
 import { inject, Injectable } from '@angular/core';
-import { environment } from '../../../environments/environments.template';
+import { environment } from '../../../../environments/environments.template';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Quadra } from '../models/quadra.model';
-import { SolicitacaoHorario } from '../models/solicitação-horario.model';
-import { GradeHorario } from '@core/models/grade-horario.model';
+import { Quadra } from '../../models/quadra.model';
 
 @Injectable({
   providedIn: 'root',
@@ -33,19 +31,5 @@ export class QuadrasService {
 
   getQuadrasByGestor(gestorId: number) {
     return this.http.get<Quadra[]>(`${this.apiUrl}/quadras/?gestorId=${gestorId}`);
-  }
-
-  getGradesHorariosByQuadras(quadraIds: number[]): Observable<GradeHorario[]> {
-    if (!quadraIds || quadraIds.length === 0) {
-      return of([]);
-    }
-
-    const query = quadraIds.map(id => `quadraId=${id}`).join('&');
-
-    return this.http.get<GradeHorario[]>(`${this.apiUrl}/grade_horarios?${query}`);
-  }
-
-  sendSolicitacaoHorario(solicitacao: Omit<SolicitacaoHorario, 'id'>): Observable<SolicitacaoHorario> {
-    return this.http.post<SolicitacaoHorario>(`${this.apiUrl}/solicitacoes_horario`, solicitacao);
   }
 }
