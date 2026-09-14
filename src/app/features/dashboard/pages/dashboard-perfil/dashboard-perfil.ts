@@ -1,9 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
+import { HeaderService } from '@core/services/header/header-service';
+import { RecursoEmDesenvolvimento } from '@shared/components/recurso-em-desenvolvimento/recurso-em-desenvolvimento';
 
 @Component({
   selector: 'app-dashboard-perfil',
-  imports: [],
+  imports: [RecursoEmDesenvolvimento],
   templateUrl: './dashboard-perfil.html',
   styleUrl: './dashboard-perfil.scss',
 })
-export class DashboardPerfil {}
+export class DashboardPerfil {
+  private headerService = inject(HeaderService);
+
+  constructor() {
+    effect(() => {
+      this.headerService.definirCabecalho(
+        'Perfil',
+        'Perfil',
+        'Configurações e informações do perfil logado.',
+      );
+    });
+  };
+}
