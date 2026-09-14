@@ -31,8 +31,11 @@ export class DashboardGeral implements OnInit {
   protected readonly quadras = this.dashboardState.quadrasPorUsuario;
   protected readonly eventos = this.dashboardState.eventosDoUsuario;
   protected readonly eventosFormatados = this.dashboardState.eventosFormatados;
+  protected readonly eventosFuturos = this.dashboardState.eventosFuturos;
   protected readonly grades = this.dashboardState.gradesDoUsuario;
   protected readonly dadosConsumo = this.dashboardState.dadosConsumoDoUsuario;
+  protected readonly multas = this.dashboardState.todasAsMultas;
+  protected readonly multasPendentes = this.dashboardState.multasPendentes;
 
   ngOnInit(): void {
     const nome = this.usuarioLogado()!.nome || 'Usuário';
@@ -60,7 +63,7 @@ export class DashboardGeral implements OnInit {
     },
     {
       title: 'Eventos ativos',
-      value: this.eventos().length,
+      value: this.eventosFuturos().length,
       subtitle: 'programados',
       icon: 'calendar_month',
     },
@@ -72,7 +75,7 @@ export class DashboardGeral implements OnInit {
     },
     {
       title: 'Multas em aberto',
-      value: 1,
+      value: this.multasPendentes().length,
       subtitle: 'R$ 150',
       icon: 'description',
     },
