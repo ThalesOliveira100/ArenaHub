@@ -79,7 +79,7 @@ export class EventosStateService {
   public readonly quantidadeEventosFuturos = computed(() => this.eventosFuturos().length);
 
   public readonly eventosFormatados = computed(() => {
-    const eventos = this.eventosDoUsuario();
+    const eventos = this.eventosFuturos();
     const quadras = this.quadrasService.todasAsQuadras();
 
     if (!eventos || eventos.length === 0) return [];
