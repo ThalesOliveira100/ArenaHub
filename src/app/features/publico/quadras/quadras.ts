@@ -9,7 +9,7 @@ import { SelectionBar } from '@shared/components/selection-bar/selection-bar';
 import { CardArena } from '@shared/components/card-arena/card-arena';
 import { Footer } from "@shared/components/footer/footer";
 import { CardArenaNotFound } from '@shared/components/card-arena-not-found/card-arena-not-found';
-import { QuadrasService } from '../../../core/services/quadras-service';
+import { QuadrasService } from '../../../core/services/quadras/quadras-service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from "@angular/router";
 import { AutenticacaoService } from '@core/auth/autenticacao.service';

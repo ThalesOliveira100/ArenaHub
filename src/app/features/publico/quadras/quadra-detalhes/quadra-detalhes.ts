@@ -9,8 +9,8 @@ import { QuadraReservaForm } from "./quadra-reserva-form/quadra-reserva-form";
 import { QuadraInformacoes } from "./quadra-informacoes/quadra-informacoes";
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { QuadraGradeHorarios } from "./quadra-grade-horarios/quadra-grade-horarios";
-import { QuadrasService } from '@core/services/quadras-service';
-import { GradeHorarioService } from '@core/services/grade-horario-service';
+import { QuadrasService } from '@core/services/quadras/quadras-service';
+import { GradeHorarioService } from '@core/services/grades/grade-horario-service';
 import { AutenticacaoService } from '@core/auth/autenticacao.service';
 import { Quadra } from '@core/models/quadra.model';
 
