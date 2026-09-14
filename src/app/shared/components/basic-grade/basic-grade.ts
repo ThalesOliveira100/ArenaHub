@@ -32,7 +32,7 @@ export class BasicGrade {
     criar: false,
     editar: false,
     excluir: false,
-    visualizar: true
+    visualizar: false
   }
 
   private _dados: any[] = [];
