@@ -1,6 +1,6 @@
 import { Component, computed, effect, inject, OnInit } from '@angular/core';
 import { DashboardStateService } from '@core/services/dashboard-state-service';
-import { HeaderService } from '@core/services/header-service';
+import { HeaderService } from '@core/services/header/header-service';
 import { BasicGrade, ColunaGrade } from '@shared/components/basic-grade/basic-grade';
 import { SearchBar } from "@shared/components/search-bar/search-bar";
 

@@ -13,7 +13,7 @@ import { Footer } from "@shared/components/footer/footer";
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
-import { HeaderService } from '@core/services/header-service';
+import { HeaderService } from '@core/services/header/header-service';
 
 const MODULES = [
   MatIcon,

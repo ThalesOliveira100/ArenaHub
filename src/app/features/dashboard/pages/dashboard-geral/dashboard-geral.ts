@@ -3,7 +3,7 @@ import { DashboardCard } from '@features/dashboard/components/dashboard-card/das
 import { DashboardGraficoHorasEsporte } from '@features/dashboard/components/dashboard-grafico-horas-esporte/dashboard-grafico-horas-esporte';
 import { DashboardGraficoConsumoMensalOcupacao } from '@features/dashboard/components/dashboard-grafico-consumo-mensal-ocupacao/dashboard-grafico-consumo-mensal-ocupacao';
 import { BasicButton } from '@shared/components/basic-button/basic-button';
-import { HeaderService } from '@core/services/header-service';
+import { HeaderService } from '@core/services/header/header-service';
 import { DashboardTable } from "@features/dashboard/components/dashboard-table/dashboard-table";
 import { DashboardStateService } from '@core/services/dashboard-state-service';
 
