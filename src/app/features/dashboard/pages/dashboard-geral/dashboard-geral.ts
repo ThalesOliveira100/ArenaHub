@@ -1,17 +1,16 @@
-import { Component, computed, effect, inject, OnInit, output } from '@angular/core';
+import { Component, computed, effect, inject } from '@angular/core';
 import { DashboardCard } from '@features/dashboard/components/dashboard-card/dashboard-card';
 import { DashboardGraficoHorasEsporte } from '@features/dashboard/components/dashboard-grafico-horas-esporte/dashboard-grafico-horas-esporte';
 import { DashboardGraficoConsumoMensalOcupacao } from '@features/dashboard/components/dashboard-grafico-consumo-mensal-ocupacao/dashboard-grafico-consumo-mensal-ocupacao';
-import { BasicButton } from '@shared/components/basic-button/basic-button';
 import { HeaderService } from '@core/services/header/header-service';
 import { DashboardTable } from "@features/dashboard/components/dashboard-table/dashboard-table";
 import { DashboardStateService } from '@core/services/dashboard-state-service';
+import { Router } from '@angular/router';
 
 const COMPONENTS = [
   DashboardCard,
   DashboardGraficoHorasEsporte,
   DashboardGraficoConsumoMensalOcupacao,
-  BasicButton,
   DashboardTable
 ]
 
@@ -26,6 +25,7 @@ const COMPONENTS = [
 export class DashboardGeral {
   private headerService = inject(HeaderService);
   private dashboardState = inject(DashboardStateService);
+  private router = inject(Router);
 
   protected readonly usuarioLogado = this.dashboardState.usuarioLogado;
   protected readonly quadras = this.dashboardState.quadrasPorUsuario;
@@ -48,7 +48,7 @@ export class DashboardGeral {
         `Perfil ${perfil} · visão geral das quadras sob sua responsabilidade.`,
         {
           label: "Ver Relatórios",
-          action: () => {},
+          action: () => this.goToRelatorios()
         }
       );
     });
@@ -86,4 +86,8 @@ export class DashboardGeral {
       icon: 'description',
     },
   ]);
+
+  goToRelatorios() {
+    this.router.navigate(['/dashboard/relatorios']);
+  }
 }
