@@ -24,7 +24,7 @@ export class DashboardQuadras {
     const perfil = this.usuarioLogado()?.perfil;
 
     return {
-      criar: perfil === 'ADMIN',
+      criar: perfil === 'ADMIN' ,
       editar: perfil === 'ADMIN' || perfil === 'GESTOR',
       excluir: perfil === 'ADMIN',
       visualizar: perfil === 'ADMIN' || perfil === 'GESTOR' || perfil === 'MONITOR'
@@ -32,8 +32,8 @@ export class DashboardQuadras {
   });
 
   protected readonly colunasConfig: ColunaGrade[] = [
-    { key: 'nome', label: 'Quadra' },
-    { key: 'regiao', label: 'Região' },
+    { key: 'nome', label: 'Quadra', type: 'main-title', sortable: true },
+    { key: 'regiao', label: 'Região', sortable: true },
     { key: 'esportes', label: 'Modalidades', type: 'chips' },
     { key: 'status', label: 'Status', type: 'badge' },
     { key: 'acoes', label: 'Ações', type: 'actions' }
