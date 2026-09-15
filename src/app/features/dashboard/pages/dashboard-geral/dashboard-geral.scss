@@ -12,17 +12,10 @@
 
 @media screen and (width >= 640px) {
   .dashboard-geral__container {
-    .main__top {
-      align-self: flex-end;
-      position: relative;
-      z-index: 10;
-      margin: 0 1rem;
-      margin-top: -60px;
-    }
-
     .main__cards {
       flex-direction: row;
       flex-wrap: wrap;
+      justify-content: space-between;
 
       app-dashboard-card {
         width: 48%;

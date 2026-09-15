@@ -1,4 +1,4 @@
-import { Component, computed, inject, OnInit } from '@angular/core';
+import { Component, computed, effect, inject, OnInit, output } from '@angular/core';
 import { DashboardCard } from '@features/dashboard/components/dashboard-card/dashboard-card';
 import { DashboardGraficoHorasEsporte } from '@features/dashboard/components/dashboard-grafico-horas-esporte/dashboard-grafico-horas-esporte';
 import { DashboardGraficoConsumoMensalOcupacao } from '@features/dashboard/components/dashboard-grafico-consumo-mensal-ocupacao/dashboard-grafico-consumo-mensal-ocupacao';
@@ -23,7 +23,7 @@ const COMPONENTS = [
   templateUrl: './dashboard-geral.html',
   styleUrl: './dashboard-geral.scss',
 })
-export class DashboardGeral implements OnInit {
+export class DashboardGeral {
   private headerService = inject(HeaderService);
   private dashboardState = inject(DashboardStateService);
 
@@ -37,16 +37,22 @@ export class DashboardGeral implements OnInit {
   protected readonly multas = this.dashboardState.todasAsMultas;
   protected readonly multasPendentes = this.dashboardState.multasPendentes;
 
-  ngOnInit(): void {
-    const nome = this.usuarioLogado()!.nome || 'Usuário';
-    const perfil = this.usuarioLogado()!.perfil || 'PUBLICO';
+  constructor() {
+    const nome = this.usuarioLogado()!.nome;
+    const perfil = this.usuarioLogado()!.perfil;
 
-    this.headerService.definirCabecalho(
-      'Dashboard',
-      `Olá, ${nome}`,
-      `Perfil ${perfil} · visão geral das quadras sob sua responsabilidade.`
-    )
-  }
+    effect(() => {
+      this.headerService.definirCabecalho(
+        'Dashboard',
+        `Olá, ${nome}`,
+        `Perfil ${perfil} · visão geral das quadras sob sua responsabilidade.`,
+        {
+          label: "Ver Relatórios",
+          action: () => {},
+        }
+      );
+    });
+  };
 
   protected readonly cardsVisiveis = computed(() => [
     {

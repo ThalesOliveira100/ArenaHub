@@ -1,11 +1,4 @@
 <div class="dashboard-geral__container">
-  <div class="main__top">
-    <app-basic-button
-      [link]="'../relatorios'"
-      [text]="'Ver Relatórios'"
-    />
-  </div>
-
   <div class="main__cards">
     @for (card of cardsVisiveis(); track $index) {
       <app-dashboard-card
