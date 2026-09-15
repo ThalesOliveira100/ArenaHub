@@ -57,7 +57,7 @@
 
     .main__top {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-between;
       margin-bottom: 0.5rem;
 
@@ -87,7 +87,8 @@
       }
 
       .main__action-btn {
-        align-self: flex-end;
+        margin-top: 0.5rem;
+        align-self: flex-start;
 
         .header-dynamic-btn {
           height: 40px;
@@ -115,11 +116,16 @@
       width: 255px;
       border-radius: 0;
     }
-  }
-}
 
-@media screen and (width >= 768px) {
-  .main__desc {
-    width: 60%;
+    .main-content {
+      .main__top {
+        flex-direction: row;
+
+        .main__action-btn {
+          align-self: flex-end;
+
+        }
+      }
+    }
   }
 }
