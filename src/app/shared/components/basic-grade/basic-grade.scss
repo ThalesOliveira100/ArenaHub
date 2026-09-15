@@ -1,0 +1,263 @@
+.grade-container {
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e0e6e2;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: auto;
+
+  table {
+    width: 100%;
+    background-color: transparent;
+
+    // Cabeçalho da Tabela
+    th.mat-mdc-header-cell {
+      font-size: 14px;
+      font-weight: 500;
+      color: #55665c;
+      background-color: #f7f9f8;
+      padding: 16px 20px;
+      border-bottom: 1px solid #e2e8e4;
+      white-space: nowrap;
+
+      .sort-icon {
+        font-size: 14px;
+        width: 14px;
+        height: 14px;
+        vertical-align: middle;
+        margin-left: 4px;
+        color: #88998e;
+      }
+
+      &.sortable {
+        cursor: pointer;
+        user-select: none;
+        transition: color 0.15s ease;
+
+        &:hover {
+          color: #1e2923;
+
+          .sort-symbol {
+            opacity: 1;
+          }
+        }
+      }
+
+      .header-cell-content {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .sort-symbol {
+        font-size: 13px;
+        opacity: 0.5;
+        font-weight: 600;
+        transition: opacity 0.15s ease;
+      }
+    }
+
+    // Células da Tabela
+    td.mat-mdc-cell {
+      font-size: 14px;
+      color: #2c3a32;
+      padding: 16px 20px;
+      border-bottom: 1px solid #edf0ee;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    // Efeito Hover na linha
+    tr.mat-mdc-row {
+      transition: background-color 0.15s ease;
+
+      &:hover {
+        background-color: #f9fbfb;
+      }
+
+      &:last-child td.mat-mdc-cell {
+        border-bottom: none;
+      }
+    }
+  }
+
+  // 🌟 Coluna Principal: Nome da Quadra (Negrito) + Endereço (Subtítulo Cinza)
+  .cell-main-title {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      font-weight: 600;
+      color: #1e2923;
+      font-size: 14px;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: #7a8b82;
+      margin-top: 3px;
+      font-weight: 400;
+    }
+  }
+
+  // 🌟 Badges de Status estilo Pílula com Borda Delicada
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: capitalize;
+
+    // Ativa / Ativo (Verde menta pastel com borda)
+    &.ativa,
+    &.ativo,
+    &.disponivel {
+      background-color: #e5f7ee;
+      color: #1b7a4b;
+      border: 1px solid #a8e0c2;
+    }
+
+    // Manutenção / Pendente (Laranja/Âmbar pastel com borda)
+    &.manutencao,
+    &.manutenção,
+    &.pendente {
+      background-color: #fff4e5;
+      color: #b86200;
+      border: 1px solid #ffd8a8;
+    }
+
+    // Inativa / Bloqueada (Vermelho pastel com borda)
+    &.inativa,
+    &.inativo,
+    &.indisponivel {
+      background-color: #fde8e8;
+      color: #c5221f;
+      border: 1px solid #f8b4b4;
+    }
+  }
+
+  // 🌟 Chips de Modalidades (Pílulas Menta)
+  .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    .custom-chip {
+      height: 26px;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: capitalize;
+      background-color: #e5f3ec !important;
+      color: #1e4d35 !important;
+      border: none !important;
+      border-radius: 16px !important;
+      padding: 0 10px;
+    }
+  }
+
+  // 🌟 Botões de Ação Minimalistas (Flat)
+  .actions-buttons {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+
+
+    button[mat-icon-button] {
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      background: transparent;
+      border-radius: 0.75rem;
+      display: flex;
+      justify-content: center;
+
+      &:hover {
+        background-color: orange;
+      }
+
+      mat-icon {
+        font-size: 18px;
+        width: 18px;
+        height: 18px;
+        color: #4a5a50;
+        transition: color 0.15s ease, transform 0.15s ease;
+      }
+
+      &:hover mat-icon {
+        color: #1e2923;
+      }
+
+      // Lixeira em tom vermelho
+      &[color="warn"] mat-icon {
+        color: #d32f2f;
+      }
+
+      &[color="warn"]:hover mat-icon {
+        color: #b71c1c;
+      }
+    }
+  }
+
+  // Paginador Customizado
+  .custom-paginator {
+    border-top: 1px solid #edf0ee;
+    background-color: #f7f9f8;
+    color: #55665c;
+    font-size: 13px;
+  }
+}
+
+.grade-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  table.mat-table {
+    width: 100%;
+    min-width: 680px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .grade-container {
+    border-radius: 12px;
+    border-color: #e2e8e4;
+
+    table.mat-table {
+      th.mat-mdc-header-cell {
+        padding: 12px 14px;
+        font-size: 13px;
+      }
+
+      td.mat-mdc-cell {
+        padding: 12px 14px;
+        font-size: 13px;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      height: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f0f4f2;
+      border-radius: 0 0 12px 12px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #b0c4b8;
+      border-radius: 4px;
+
+      &:hover {
+        background: #88a392;
+      }
+    }
+  }
+}

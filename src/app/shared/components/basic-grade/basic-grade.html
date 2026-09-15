@@ -2,9 +2,37 @@
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z0">
     @for (coluna of colunas; track coluna.key) {
       <ng-container [matColumnDef]="coluna.key">
-        <th mat-header-cell *matHeaderCellDef>{{ coluna.label }}</th>
+        <th
+          mat-header-cell
+          *matHeaderCellDef
+          [class.sortable]="coluna.sortable"
+          (click)="coluna.sortable && alternarOrdenacao(coluna.key)"
+        >
+          <div class="header-cell-content">
+            <span>{{ coluna.label }}</span>
+
+            @if (coluna.sortable) {
+              <span class="sort-symbol">
+                @if (colunaOrdenada() === coluna.key) {
+                  {{ direcaoOrdenacao() === 'asc' ? '↑' : '↓' }}
+                } @else {
+                  ⇅
+                }
+              </span>
+            }
+          </div>
+        </th>
         <td mat-cell *matCellDef="let element">
           @switch (coluna.type) {
+            @case ('main-title') {
+              <div class="cell-main-title">
+                <span class="title">{{ element[coluna.key] }}</span>
+                @if (element.subtitulo || element.endereco) {
+                  <span class="subtitle">{{ element.subtitulo || element.endereco }}</span>
+                }
+              </div>
+            }
+
             <!-- Badge de Status -->
             @case ('badge') {
               <span class="status-badge" [ngClass]="element[coluna.key]?.toLowerCase()">
