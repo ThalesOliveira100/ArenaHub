@@ -32,4 +32,12 @@ export class QuadrasService {
   getQuadrasByGestor(gestorId: number) {
     return this.http.get<Quadra[]>(`${this.apiUrl}/quadras/?gestorId=${gestorId}`);
   }
+
+  criarQuadra(quadra: Omit<Quadra, 'id'> | any): Observable<Quadra> {
+    return this.http.post<Quadra>(`${this.apiUrl}/quadras`, quadra);
+  }
+
+  atualizarQuadra(id: string | number, quadra: Partial<Quadra>): Observable<Quadra> {
+    return this.http.put<Quadra>(`${this.apiUrl}/quadras/${id}`, quadra);
+  }
 }
