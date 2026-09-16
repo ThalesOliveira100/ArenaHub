@@ -25,7 +25,20 @@ export const routes: Routes = [
       },
       {
         path: 'quadras',
-        loadComponent: () => import('@features/dashboard/pages/dashboard-quadras/dashboard-quadras').then(m => m.DashboardQuadras)
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('@features/dashboard/pages/dashboard-quadras/dashboard-quadras').then(m => m.DashboardQuadras),
+          },
+          {
+            path: 'criar',
+            loadComponent: () => import('@features/dashboard/pages/quadra-form/quadra-form').then(m => m.QuadraForm)
+          },
+          {
+            path: 'editar/:id',
+            loadComponent: () => import('@features/dashboard/pages/quadra-form/quadra-form').then(m => m.QuadraForm)
+          }
+        ]
       },
       {
         path: 'horarios',
