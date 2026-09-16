@@ -12,7 +12,7 @@ export interface Quadra {
   status: QuadraStatus;
   esportes: string[];
   gestorId: number; // FK de usuarios.id
-  monitorId: number; // FK de usuario.id
+  monitoresId: number[]; // FK de usuario.id
   imagemUrl?: string;
   descricao?: string;
 }
