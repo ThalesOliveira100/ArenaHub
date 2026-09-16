@@ -7,10 +7,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { HeaderService } from '@core/services/header/header-service';
-import { QuadrasService } from '@core/services/quadras/quadras-service';
 import { UsuarioService } from '@core/services/user/usuarios-service';
 import { BasicFormCard } from '@shared/components/basic-form-card/basic-form-card';
 import { Location } from '@angular/common';
+import { QuadrasStateService } from '@core/services/quadras/quadras-state-service';
+import { QuadrasService } from '@core/services/quadras/quadras-service';
 
 @Component({
   selector: 'app-quadra-form',
@@ -32,6 +33,7 @@ export class QuadraForm {
   private location = inject(Location);
   private headerService = inject(HeaderService);
   private quadrasService = inject(QuadrasService);
+  private quadrasState = inject(QuadrasStateService);
   private userService = inject(UsuarioService);
 
   id = input<string>();
@@ -117,8 +119,8 @@ export class QuadraForm {
     const dados = this.form.value;
 
     const requisicao$ = this.isEdicao()
-      ? this.quadrasService.atualizarQuadra(this.id()!, dados)
-      : this.quadrasService.criarQuadra(dados);
+      ? this.quadrasState.atualizarQuadra(this.id()!, dados)
+      : this.quadrasState.criarQuadra(dados);
 
     requisicao$.subscribe({
       next: () => {
