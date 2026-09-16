@@ -3,6 +3,23 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   background-color: white;
 
+  mat-card-header {
+    padding: 1.5rem 2.5rem;
+    background-color: #F9F9F9;
+    border: 2px solid #dedede;
+    border-radius: 0.75rem 0.75rem 0 0;
+
+    mat-card-title {
+      font-size: x-large;
+      font-weight: 500;
+      line-height: 2rem;
+    }
+
+    mat-card-subtitle {
+      font-weight: 400;
+    }
+  }
+
   .form-content {
     .form-actions {
       display: flex;

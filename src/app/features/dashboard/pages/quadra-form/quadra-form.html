@@ -13,7 +13,7 @@
     <div [formGroup]="form" class="form-grid">
 
       <!-- Nome -->
-      <mat-form-field appearance="outline" class="col-span-2">
+      <mat-form-field appearance="outline">
         <mat-label>Nome da Quadra</mat-label>
         <input matInput formControlName="nome" placeholder="Ex: Quadra Poliesportiva A" />
         @if (form.get('nome')?.hasError('required')) {
@@ -47,7 +47,7 @@
       </mat-form-field>
 
       <!-- Descrição -->
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="col-span-2">
         <mat-label>Descrição</mat-label>
         <textarea matInput formControlName="descricao" placeholder="Estrutura, capacidade, vestiários..."></textarea>
         @if (form.get('descricao')?.hasError('required')) {
