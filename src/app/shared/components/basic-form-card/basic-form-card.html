@@ -1,0 +1,44 @@
+<mat-card class="form-card">
+  @if (title()) {
+    <mat-card-header>
+      <mat-card-title>{{ title() }}</mat-card-title>
+      @if (subtitle()) {
+        <mat-card-subtitle>{{ subtitle() }}</mat-card-subtitle>
+      }
+    </mat-card-header>
+  }
+
+  <mat-card-content class="form-content">
+    <form (ngSubmit)="onSubmit($event)">
+      <ng-content></ng-content>
+
+      <div class="form-actions">
+        <button
+          type="button"
+          mat-stroked-button
+          (click)="onCancel()"
+          [disabled]="loading()"
+        >
+          {{ cancelLabel() }}
+        </button>
+
+        <button
+          type="submit"
+          (click)="onSubmit()"
+          mat-raised-button
+          color="primary"
+          [disabled]="disabled() || loading()"
+        >
+          @if (loading()) {
+            <mat-spinner diameter="20" class="btn-spinner"></mat-spinner>
+          } @else {
+            @if (icon()) {
+              <mat-icon>{{ icon() }}</mat-icon>
+            }
+            {{ submitLabel() }}
+          }
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
