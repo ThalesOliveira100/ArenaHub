@@ -1,0 +1,99 @@
+<div class="form-container-page">
+  <app-basic-form-card
+    [title]="isEdicao() ? 'Informações da Quadra' : 'Nova Instalação'"
+    [subtitle]="'Preencha todos os campos obrigatórios (*)'"
+    [submitLabel]="isEdicao() ? 'Salvar Alterações' : 'Cadastrar Quadra'"
+    [cancelLabel]="'Voltar'"
+    [icon]="isEdicao() ? 'check' : 'add'"
+    [loading]="salvando()"
+    [disabled]="salvando()"
+    (submitted)="salvar()"
+    (cancelled)="voltar()"
+  >
+    <div [formGroup]="form" class="form-grid">
+
+      <!-- Nome -->
+      <mat-form-field appearance="outline" class="col-span-2">
+        <mat-label>Nome da Quadra</mat-label>
+        <input matInput formControlName="nome" placeholder="Ex: Quadra Poliesportiva A" />
+        @if (form.get('nome')?.hasError('required')) {
+          <mat-error>O nome é obrigatório</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Região -->
+      <mat-form-field appearance="outline">
+        <mat-label>Região</mat-label>
+        <input matInput formControlName="regiao" placeholder="Ex: Zona Norte" />
+        @if (form.get('regiao')?.hasError('required')) {
+          <mat-error>A região é obrigatória</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Endereço -->
+      <mat-form-field appearance="outline" class="col-span-2">
+        <mat-label>Endereço Completo</mat-label>
+        <input matInput formControlName="endereco" placeholder="Rua, número, bairro..." />
+      </mat-form-field>
+
+      <!-- Esportes -->
+      <mat-form-field appearance="outline" class="col-span-2">
+        <mat-label>Esportes Permitidos</mat-label>
+        <mat-select formControlName="esportes" multiple>
+          @for (mod of esportesOpcoes; track mod) {
+            <mat-option [value]="mod">{{ mod }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Descrição -->
+      <mat-form-field appearance="outline">
+        <mat-label>Descrição</mat-label>
+        <input matInput formControlName="descricao" placeholder="Estrutura, capacidade, vestiários..." />
+        @if (form.get('descricao')?.hasError('required')) {
+          <mat-error>A descrição é obrigatória</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Imagem (URL) -->
+      <mat-form-field appearance="outline">
+        <mat-label>Imagem (URL)</mat-label>
+        <input matInput formControlName="imagemUrl" placeholder="https://..." />
+        @if (form.get('imagemUrl')?.hasError('required')) {
+          <mat-error>A descrição é obrigatória</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Status -->
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          <mat-option value="ATIVA">Ativa</mat-option>
+          <mat-option value="MANUTENÇÃO">Manutenção</mat-option>
+          <mat-option value="INATIVA">Inativa</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Gestor Responsável -->
+      <mat-form-field appearance="outline">
+        <mat-label>Gestor Responsável</mat-label>
+        <mat-select formControlName="gestorId">
+          @for (g of gestores(); track g.id) {
+            <mat-option [value]="g.id">{{ g.nome }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Monitor Responsável -->
+      <mat-form-field appearance="outline">
+        <mat-label>Monitores Alocados</mat-label>
+        <mat-select formControlName="monitoresId" multiple>
+          @for (m of monitores(); track m.id) {
+            <mat-option [value]="m.id">{{ m.nome }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+  </app-basic-form-card>
+</div>
