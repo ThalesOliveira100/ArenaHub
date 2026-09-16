@@ -40,4 +40,8 @@ export class QuadrasService {
   atualizarQuadra(id: string | number, quadra: Partial<Quadra>): Observable<Quadra> {
     return this.http.put<Quadra>(`${this.apiUrl}/quadras/${id}`, quadra);
   }
+
+  deletarQuadra(id: number | string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/quadras/${id}`);
+  }
 }

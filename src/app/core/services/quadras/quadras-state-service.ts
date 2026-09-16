@@ -1,8 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { QuadrasService } from './quadras-service';
-import { of, switchMap } from 'rxjs';
+import { BehaviorSubject, combineLatest, of, switchMap, tap } from 'rxjs';
 import { AutenticacaoService } from '@core/auth/autenticacao.service';
+import { Quadra } from '@core/models/quadra.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,22 +12,58 @@ export class QuadrasStateService {
   private authService = inject(AutenticacaoService);
   private quadrasService = inject(QuadrasService);
   private usuarioLogado = this.authService.usuarioLogado;
+  private usuarioLogado$ = toObservable(this.usuarioLogado);
+  private refresh$ = new BehaviorSubject<void>(undefined);
 
-  public readonly todasAsQuadras = toSignal(this.quadrasService.getQuadras(), { initialValue: [] });
+  public readonly todasAsQuadras = toSignal(
+    this.refresh$.pipe(
+      switchMap(() => this.quadrasService.getQuadras()),
+    ),
+    { initialValue: [] },
+  );
 
-  public readonly quadrasAtivas = toSignal(this.quadrasService.getQuadrasAtivas(), { initialValue: [] });
+  public readonly quadrasAtivas = toSignal(
+    this.refresh$.pipe(
+      switchMap(() => this.quadrasService.getQuadrasAtivas()),
+    ),
+    { initialValue: [] },
+  );
+
+  public recarregar() {
+    this.refresh$.next();
+  }
 
   public readonly quadrasPorUsuario = toSignal(
-    toObservable(this.usuarioLogado).pipe(
-      switchMap((usuario) => {
+    combineLatest([this.refresh$, this.usuarioLogado$]).pipe(
+      switchMap(([_, usuario]) => {
         if (!usuario || !usuario?.id) return of([]);
         if (usuario.perfil === 'MONITOR') return this.quadrasService.getQuadrasByMonitor(usuario.id);
         if (usuario.perfil === 'GESTOR') return this.quadrasService.getQuadrasByGestor(usuario.id);
         if (usuario.perfil === 'ADMIN') return this.quadrasService.getQuadras();
 
         return of([]);
-      }),
+      })
     ),
-    { initialValue: [] },
+    { initialValue: [] }
   );
+
+  // --- MÉTODOS DE AÇÃO ---
+
+  public criarQuadra(quadra: Omit<Quadra, 'id'> ) {
+    return this.quadrasService.criarQuadra(quadra).pipe(
+      tap(() => this.recarregar())
+    );
+  }
+
+  public atualizarQuadra(id: number | string, quadra: Partial<Quadra>) {
+    return this.quadrasService.atualizarQuadra(id, quadra).pipe(
+      tap(() => this.recarregar())
+    );
+  }
+
+  public deletarQuadra(id: number | string) {
+    return this.quadrasService.deletarQuadra(id).pipe(
+      tap(() => this.recarregar())
+    );
+  }
 }
