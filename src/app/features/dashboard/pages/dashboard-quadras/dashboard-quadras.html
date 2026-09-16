@@ -1,11 +1,13 @@
 <div class="quadras-content">
   <app-search-bar
     [label]="'Buscar quadra ou região'"
+    width="100%"
+    [(value)]="termoBusca"
   />
 
   <app-basic-grade
     [colunas]="colunasConfig"
-    [dados]="quadras()"
+    [dados]="quadrasFiltradas()"
     [permissoes]="permissoes()"
     (acaoDisparada)="onAcaoExecutada($event)"
   />

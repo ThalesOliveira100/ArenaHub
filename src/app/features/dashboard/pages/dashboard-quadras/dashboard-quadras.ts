@@ -1,4 +1,4 @@
-import { Component, computed, effect, inject } from '@angular/core';
+import { Component, computed, effect, inject, signal } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -26,6 +26,7 @@ export class DashboardQuadras {
   private dialog = inject(MatDialog);
   private snackBar = inject(MatSnackBar);
 
+  protected readonly termoBusca = signal<string>('');
   protected readonly quadras = this.quadrasState.quadrasPorUsuario;
   protected readonly usuarioLogado = this.authService.usuarioLogado;
 
@@ -83,6 +84,27 @@ export class DashboardQuadras {
         break;
     }
   }
+
+  onSearch(termo: string) {
+    this.termoBusca.set(termo);
+  }
+
+  protected readonly quadrasFiltradas = computed(() => {
+    const termo = this.termoBusca().toLowerCase().trim();
+    const lista = this.quadras();
+
+    if (!termo) return lista;
+
+    return lista.filter((q) => {
+      const nomeMatch = q.nome.toLowerCase().includes(termo);
+      const regiaoMatch = q.regiao.toLowerCase().includes(termo);
+      const esporteMatch = Array.isArray(q.esportes)
+        ? q.esportes.some(e => e.toLowerCase().includes(termo))
+        : false;
+
+      return nomeMatch || regiaoMatch || esporteMatch;
+    });
+  });
 
   private createQuadra () {
     this.router.navigate(['/dashboard/quadras/criar']);
