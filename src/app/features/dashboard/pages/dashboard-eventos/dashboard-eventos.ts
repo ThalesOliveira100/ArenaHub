@@ -15,7 +15,10 @@ export class DashboardEventos {
     effect(() => {
       this.headerService.definirCabecalho(
         'Eventos',
-        'Eventos',
+        [
+          { label: 'Início', route: '/dashboard/geral'},
+          { label: 'Eventos' }
+        ],
         'Competições, festivais e atividades programadas nas quadras.'
       );
     });

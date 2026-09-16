@@ -15,7 +15,10 @@ export class DashboardPerfil {
     effect(() => {
       this.headerService.definirCabecalho(
         'Perfil',
-        'Perfil',
+        [
+          { label: 'Início', route: '/dashboard/geral'},
+          { label: 'Perfil' }
+        ],
         'Configurações e informações do perfil logado.',
       );
     });

@@ -67,11 +67,11 @@
         justify-content: space-between;
         gap: 0.5rem;
 
-        p > a {
+        .breadcrumbs > a, .separator {
           color: #616c63;
         }
 
-        p > a:hover {
+        .breadcrumbs > a:hover {
           color: black;
         }
 

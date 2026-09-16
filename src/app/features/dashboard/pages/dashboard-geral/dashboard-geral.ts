@@ -43,8 +43,11 @@ export class DashboardGeral {
 
     effect(() => {
       this.headerService.definirCabecalho(
-        'Dashboard',
         `Olá, ${nome}`,
+        [
+          { label: 'Início', route: '/dashboard/geral'},
+          { label: 'Dashboard' }
+        ],
         `Perfil ${perfil} · visão geral das quadras sob sua responsabilidade.`,
         {
           label: "Ver Relatórios",

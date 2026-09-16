@@ -14,8 +14,11 @@ export class DashboardPatrimonio {
   constructor() {
     effect(() => {
       this.headerService.definirCabecalho(
-        'Patrimônio',
-        'Patrimônio',
+        'Patrimônios',
+        [
+          { label: 'Início', route: '/dashboard/geral'},
+          { label: 'Patrimônios' }
+        ],
         'Redes, traves, placares, iluminação e demais ativos imobilizados.'
       );
     });

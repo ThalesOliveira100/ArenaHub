@@ -15,7 +15,10 @@ export class DashboardConfig {
     effect(() => {
       this.headerService.definirCabecalho(
         'Configurações',
-        'Configurações',
+        [
+          { label: 'Início', route: '/dashboard/geral'},
+          { label: 'Configurações' }
+        ],
         'Configurações gerais do aplicativo.',
       );
     });

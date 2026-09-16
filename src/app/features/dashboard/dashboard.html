@@ -89,10 +89,21 @@
       <div class="main-content">
         <div class="main__top">
           <div class="main__info">
-            <p>
+            <!-- <p>
               <a [routerLink]="['/dashboard/geral']" class="breadcrumb-link">Início ></a>
-              {{ headerService.janelaAtual() }}
-            </p>
+              {{ headerService.titulo() }}
+            </p> -->
+
+            <nav class="breadcrumbs">
+              @for (item of headerService.breadcrumbs(); track item.label; let last = $last) {
+                @if (item.route && !last) {
+                  <a [routerLink]="item.route" class="breadcrumb-link">{{ item.label }}</a>
+                  <span class="separator"> > </span>
+                } @else {
+                  <span class="breadcrumb-current">{{ item.label }}</span>
+                }
+              }
+            </nav>
             <h1 class="main__titulo">{{ headerService.titulo() }}</h1>
             <p class="main__desc">{{ headerService.descricao() }}</p>
           </div>

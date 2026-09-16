@@ -55,7 +55,10 @@ export class DashboardQuadras {
 
       this.headerService.definirCabecalho(
         'Quadras',
-        'Quadras',
+        [
+          { label: 'Início', route: '/dashboard/geral'},
+          { label: 'Quadras' }
+        ],
         'Estrutura, modalidades e equipe responsável por cada quadra.',
         podeCriar ? {
           label: 'Nova Quadra',

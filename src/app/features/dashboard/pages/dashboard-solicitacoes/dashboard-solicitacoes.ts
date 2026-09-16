@@ -15,7 +15,10 @@ export class DashboardSolicitacoes {
     effect(() => {
       this.headerService.definirCabecalho(
         'Solicitações',
-        'Solicitações',
+        [
+          { label: 'Início', route: '/dashboard/geral'},
+          { label: 'Solicitações' }
+        ],
         'Veja as solicitações de horários para as quadras.',
       );
     });

@@ -15,7 +15,10 @@ export class DashboardMultas {
     effect(() => {
       this.headerService.definirCabecalho(
         'Multas',
-        'Multas',
+        [
+          { label: 'Início', route: '/dashboard/geral'},
+          { label: 'Multas' }
+        ],
         'Consulte multas pendentes e registradas nas quadras.',
       );
     });

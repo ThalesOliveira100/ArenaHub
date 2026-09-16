@@ -1,5 +1,4 @@
-import { Component, computed, effect, inject } from '@angular/core';
-import { DashboardStateService } from '@core/services/dashboard-state-service';
+import { Component, effect, inject } from '@angular/core';
 import { HeaderService } from '@core/services/header/header-service';
 import { RecursoEmDesenvolvimento } from '@shared/components/recurso-em-desenvolvimento/recurso-em-desenvolvimento';
 
@@ -16,7 +15,10 @@ export class DashboardHorarios {
     effect(() => {
       this.headerService.definirCabecalho(
         'Horários',
-        'Horários',
+        [
+          { label: 'Início', route: '/dashboard/geral'},
+          { label: 'Horários' }
+        ],
         'Grade semanal de utilização das quadras.'
       );
     });

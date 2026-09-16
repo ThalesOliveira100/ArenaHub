@@ -73,8 +73,12 @@ export class QuadraForm {
       const quadraId = this.id();
 
       this.headerService.definirCabecalho(
-        edicao ? 'Editar Quadra' : 'Cadastrar Nova Quadra',
-        edicao ? 'Editar Quadra' : 'Cadastrar Nova Quadra',
+        edicao ? 'Editar Quadra' : 'Criar Nova Quadra',
+        [
+          { label: 'Início', route: '/dashboard/geral' },
+          { label: 'Quadras', route: '/dashboard/quadras' },
+          edicao ? { label: 'Editar' } : { label: 'Nova Quadra' }
+        ],
         edicao
         ? 'Atualize as informações, modalidades ou responsáveis pela instalação.'
         : 'Preencha os dados para registrar uma nova estrutura no sistema.'

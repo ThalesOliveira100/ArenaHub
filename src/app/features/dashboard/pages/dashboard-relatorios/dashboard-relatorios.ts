@@ -15,7 +15,10 @@ export class DashboardRelatorios {
     effect(() => {
       this.headerService.definirCabecalho(
         'Relatórios',
-        'Relatórios',
+        [
+          { label: 'Início', route: '/dashboard/geral'},
+          { label: 'Relatórios' }
+        ],
         'Relatórios disponíveis no sistema.',
       );
     });

@@ -7,18 +7,28 @@ export interface HeaderButtonConfig {
   action: () => void;
 }
 
+export interface BreadcrumbItem {
+  label: string;
+  route?: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class HeaderService {
-  public readonly janelaAtual = signal<string>('');
   public readonly titulo = signal<string>('');
   public readonly descricao = signal<string>('');
+  public readonly breadcrumbs = signal<BreadcrumbItem[]>([]);
   public readonly botaoConfig = signal<HeaderButtonConfig | null>(null);
 
-  definirCabecalho(janela: string, titulo: string, descricao: string, botao?: HeaderButtonConfig) {
-    this.janelaAtual.set(janela);
+  definirCabecalho(
+      titulo: string,
+      breadcrumbs: BreadcrumbItem[],
+      descricao: string,
+      botao?: HeaderButtonConfig
+    ) {
     this.titulo.set(titulo);
+    this.breadcrumbs.set(breadcrumbs);
     this.descricao.set(descricao);
     this.botaoConfig.set(botao || null);
   }
