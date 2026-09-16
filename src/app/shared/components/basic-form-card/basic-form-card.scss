@@ -1,0 +1,41 @@
+.form-card {
+  border: 1px solid #DEDEDE;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  background-color: white;
+
+  .form-content {
+    .form-actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      gap: 1rem;
+
+      .cancel-button {
+        background-color: transparent;
+        color: black;
+        border-color: #DEDEDE;
+        border-radius: 0.75rem;
+        font-weight: 400;
+        transition: transform 0.2s, background-color 0.2s;
+
+        &:hover {
+          background-color: orange;
+        }
+      }
+
+      .submit-button {
+        background-color: #007F53;
+        color: white;
+        border-radius: 0.75rem;
+        font-weight: 500;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .submit-button__itens {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

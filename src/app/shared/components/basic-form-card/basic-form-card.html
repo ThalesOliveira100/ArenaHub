@@ -14,8 +14,9 @@
 
       <div class="form-actions">
         <button
+          class="cancel-button"
           type="button"
-          mat-stroked-button
+          matButton="outlined"
           (click)="onCancel()"
           [disabled]="loading()"
         >
@@ -23,19 +24,22 @@
         </button>
 
         <button
+          class="submit-button"
           type="submit"
-          mat-raised-button
+          matButton='filled'
           color="primary"
           [disabled]="disabled() || loading()"
         >
-          @if (loading()) {
-            <mat-spinner diameter="20" class="btn-spinner"></mat-spinner>
-          } @else {
-            @if (icon()) {
-              <mat-icon>{{ icon() }}</mat-icon>
+          <div class="submit-button__itens">
+            @if (loading()) {
+              <mat-spinner diameter="20" class="btn-spinner"></mat-spinner>
+            } @else {
+              @if (icon()) {
+                <mat-icon>{{ icon() }}</mat-icon>
+              }
+              {{ submitLabel() }}
             }
-            {{ submitLabel() }}
-          }
+          </div>
         </button>
       </div>
     </form>
