@@ -1,0 +1,19 @@
+.dialog-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e2923;
+}
+
+.dialog-content p {
+  color: #55665c;
+  font-size: 14px;
+  margin: 8px 0 0 0;
+}
+
+.dialog-actions {
+  padding-top: 16px;
+  gap: 8px;
+}
