@@ -49,7 +49,7 @@
       <!-- Descrição -->
       <mat-form-field appearance="outline">
         <mat-label>Descrição</mat-label>
-        <input matInput formControlName="descricao" placeholder="Estrutura, capacidade, vestiários..." />
+        <textarea matInput formControlName="descricao" placeholder="Estrutura, capacidade, vestiários..."></textarea>
         @if (form.get('descricao')?.hasError('required')) {
           <mat-error>A descrição é obrigatória</mat-error>
         }
