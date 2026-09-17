@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { QuadrasService } from './quadras-service';
-import { BehaviorSubject, combineLatest, of, switchMap, tap } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, of, switchMap, tap } from 'rxjs';
 import { AutenticacaoService } from '@core/auth/autenticacao.service';
 import { Quadra } from '@core/models/quadra.model';
 
@@ -21,6 +21,15 @@ export class QuadrasStateService {
     ),
     { initialValue: [] },
   );
+
+  public getQuadraPorId(id: number | string): Observable<Quadra> {
+    return this.quadrasService.getQuadraPorId(Number(id));
+  }
+
+  public getQuadraPorIdMemoria(id: number | string): Quadra | undefined {
+    const idNum = Number(id);
+    return this.todasAsQuadras().find((q) => Number(q.id) === idNum);
+  }
 
   public readonly quadrasAtivas = toSignal(
     this.refresh$.pipe(
