@@ -48,7 +48,12 @@ export class QuadraForm {
   'Tênis',
   'Beach Tennis',
   'Vôlei de Areia',
-  'Futevôlei'
+  'Futevôlei',
+  'Queimada',
+  'Badminton',
+  'Judô',
+  'Karatê',
+  'Tênis de Mesa'
   ];
   protected readonly gestores = signal<any[]>([]);
   protected readonly monitores = signal<any[]>([]);
