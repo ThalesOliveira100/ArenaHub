@@ -114,7 +114,7 @@ export class DashboardQuadras {
   }
 
   private visualizarQuadra(quadra: any) {
-    this.router.navigate(['/quadras', quadra.id]);
+    this.router.navigate(['/dashboard/quadras', quadra.id]);
   }
 
   private editarQuadra(quadra: any) {
