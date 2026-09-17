@@ -218,7 +218,7 @@
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 
-  table.mat-table {
+  table {
     width: 100%;
     min-width: 680px;
   }
@@ -230,7 +230,7 @@
     border-radius: 12px;
     border-color: #e2e8e4;
 
-    table.mat-table {
+    table {
       th.mat-mdc-header-cell {
         padding: 12px 14px;
         font-size: 13px;
