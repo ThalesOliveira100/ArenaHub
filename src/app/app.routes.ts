@@ -31,13 +31,17 @@ export const routes: Routes = [
             loadComponent: () => import('@features/dashboard/pages/dashboard-quadras/dashboard-quadras').then(m => m.DashboardQuadras),
           },
           {
+            path: ':id',
+            loadComponent: () => import('@features/dashboard/pages/quadra-view/quadra-view').then(m => m.QuadraView)
+          },
+          {
             path: 'criar',
             loadComponent: () => import('@features/dashboard/pages/quadra-form/quadra-form').then(m => m.QuadraForm)
           },
           {
             path: 'editar/:id',
             loadComponent: () => import('@features/dashboard/pages/quadra-form/quadra-form').then(m => m.QuadraForm)
-          }
+          },
         ]
       },
       {
