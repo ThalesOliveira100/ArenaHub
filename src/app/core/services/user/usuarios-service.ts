@@ -14,4 +14,8 @@ export class UsuarioService {
   getUsuarios(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(`${this.apiUrl}/usuarios`);
   }
+
+  public getUsuarioPorId(id: number): Observable<Usuario> {
+    return this.http.get<Usuario>(`${this.apiUrl}/usuarios/${id}`);
+  }
 }
