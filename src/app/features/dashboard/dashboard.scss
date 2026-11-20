@@ -68,7 +68,7 @@
         gap: 0.5rem;
 
         .breadcrumbs > a, .separator {
-          color: #616c63;
+          color: #334155;
         }
 
         .breadcrumbs > a:hover {
@@ -76,13 +76,14 @@
         }
 
         .main__titulo {
+          color: #1e293b;
           font-size: x-large;
           font-weight: 700;
           line-height: 2rem;
         }
 
         .main__desc {
-          color: #616c63;
+          color: #334155;
         }
       }
 
