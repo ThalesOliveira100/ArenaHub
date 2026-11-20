@@ -1,1 +1,148 @@
-<p>quadra-view works!</p>
+@if (quadra(); as q) {
+  <div class="quadra-view__content">
+    <!-- Hero / Imagem da Quadra -->
+    <div class="quadra-view__hero">
+      <img
+        [src]="q.imagemUrl || 'assets/images/placeholder-quadra.png'"
+        [alt]="'Imagem da quadra ' + q.nome"
+        class="quadra-view__hero-img"
+        style="object-fit: cover; width: 100%; height: 35vh; border-radius: 0.75rem;"
+      >
+      <div class="quadra-view__hero-badges">
+        <span class="badge badge--status" [attr.data-status]="q.status">{{ q.status }}</span>
+        <span class="badge badge--regiao">{{ q.regiao }}</span>
+      </div>
+    </div>
+
+    <!-- Informações Gerais -->
+    <section class="quadra-view__card quadra-view__info">
+      <h3 class="quadra-view__card-title">Informações</h3>
+
+      <div class="quadra-view__info-body">
+        <p><strong>Endereço:</strong> {{ q.endereco || 'Não informado' }}</p>
+        <p><strong>Região:</strong> {{ q.regiao || 'Não informado' }}</p>
+        @if (q.descricao) {
+          <p><strong>Descrição:</strong> {{ q.descricao }}</p>
+        }
+
+        <div class="quadra-view__modalidades">
+          <strong>Modalidades:</strong>
+          <div class="chips-list">
+            @for (esporte of q.esportes; track esporte) {
+              <span class="chip">{{ esporte }}</span>
+            } @empty {
+              <span class="text-muted">Nenhuma modalidade cadastrada</span>
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Equipe Vinculada -->
+    <section class="quadra-view__card quadra-view__equipe">
+      <h3 class="quadra-view__card-title">Equipe Vinculada</h3>
+
+      <div class="quadra-view__equipe-body">
+
+        <div class="equipe-grupo">
+          <span class="equipe-grupo__label">Gestor Responsável</span>
+
+          @if (equipe().gestor; as gestor) {
+            <div class="usuario-card usuario-card--gestor">
+              <div class="usuario-card__avatar">👔</div>
+              <div class="usuario-card__info">
+                <span class="usuario-card__nome">{{ gestor.nome }}</span>
+                <span class="usuario-card__email">{{ gestor.email }}</span>
+              </div>
+            </div>
+          } @else {
+            <p class="text-muted">Nenhum gestor atribuído a esta quadra.</p>
+          }
+        </div>
+
+        <!-- 👟 MONITORES ALOCADOS -->
+        <div class="equipe-grupo">
+          <span class="equipe-grupo__label">
+            Monitores Alocados ({{ equipe().monitores.length }})
+          </span>
+
+          @if (equipe()!.monitores.length > 0) {
+            <div class="monitores-grid">
+              @for (monitor of equipe()!.monitores; track monitor.id) {
+                <div class="usuario-card usuario-card--monitor">
+                  <div class="usuario-card__avatar">👟</div>
+                  <div class="usuario-card__info">
+                    <span class="usuario-card__nome">{{ monitor.nome }}</span>
+                    <span class="usuario-card__email">{{ monitor.email }}</span>
+                  </div>
+                </div>
+              }
+            </div>
+          } @else {
+            <p class="text-muted">Nenhum monitor alocado nesta quadra.</p>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Grade de Horários -->
+    <section class="quadra-view__card quadra-view__grade">
+      <h3 class="quadra-view__card-title">
+        Grade de Horários ({{ grades()?.length }})
+      </h3>
+
+      @if (grades()!.length > 0) {
+        <div class="quadra-view__grade-grid">
+          @for (item of grades(); track item.id) {
+            <div class="horario-card">
+
+              <div class="horario-card__header">
+                <span class="horario-card__dia">{{ item.diaDaSemana | diaSemana }}</span>
+                <span class="horario-card__hora">{{ item.horaInicio }} - {{ item.horaFinal }}</span>
+              </div>
+
+              <div class="horario-card__body">
+                <div class="horario-card__detalhes">
+                  <span class="chip chip--esporte">{{ item.esporte }}</span>
+                  <span class="horario-card__solicitante">
+                    👤 {{ item.solicitanteNome }}
+                  </span>
+                </div>
+
+                <div class="horario-card__preco">
+                  {{ item.preco | currency:'BRL':'symbol':'1.2-2' }}
+                </div>
+              </div>
+
+            </div>
+          }
+        </div>
+      } @else {
+        <p class="text-muted">Nenhum horário reservado para esta quadra.</p>
+      }
+    </section>
+
+    <!-- Patrimônios (Ativos) -->
+    <section class="quadra-view__card quadra-view__patrimonios">
+      <h3 class="quadra-view__card-title">
+        Patrimônios ({{ ativos()?.length || 0 }})
+      </h3>
+
+      @if (ativos()!.length > 0) {
+        <ul class="patrimonios-list">
+          @for (ativo of ativos(); track ativo.id || $index) {
+            <li>{{ ativo.nome || ativo }}</li>
+          }
+        </ul>
+      } @else {
+        <p class="text-muted">Nenhum patrimônio alocado nesta quadra.</p>
+      }
+    </section>
+
+  </div>
+} @else {
+  <!-- Skeleton / Estado de Carregamento -->
+  <div class="quadra-view__loading">
+    <p>Carregando detalhes da quadra...</p>
+  </div>
+}
