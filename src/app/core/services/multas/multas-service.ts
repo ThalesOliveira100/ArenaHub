@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environments.template';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { Multa } from '@core/models/multa.model';
 
 @Injectable({
@@ -23,7 +23,36 @@ export class MultasService {
     return this.http.get<Multa[]>(`${this.apiUrl}/multas?quadraId=${quadraId}`);
   }
 
+  getMultasPendentesPorQuadra(quadraId: number | string): Observable<Multa[]> {
+    return this.http.get<Multa[]>(`${this.apiUrl}/multas?quadraId=${quadraId}&status=PENDENTE`);
+  }
+
   getMultasPorMonitorResponsavel(monitorId: number): Observable<Multa[]> {
     return this.http.get<Multa[]>(`${this.apiUrl}/multas?monitorId=${monitorId}`);
+  }
+
+  getValorMultas(): Observable<number> {
+    return this.getMultas().pipe(
+      map((multas) =>
+        multas
+          .filter((m) => m.status === 'PENDENTE' || m.status === 'ATRASADO')
+          .reduce((total, m) => total + (m.preco || 0), 0)
+      )
+    );
+  }
+
+  getValorMultasPorQuadra(idQuadra: number | string): Observable<number> {
+  const idNum = Number(idQuadra);
+
+  return this.getMultas().pipe(
+    map((multas) =>
+      multas
+        .filter(
+          (m) =>
+            Number(m.quadraId) === idNum &&
+            (m.status === 'PENDENTE' || m.status === 'ATRASADO')
+        )
+        .reduce((total, m) => total + (m.preco || 0), 0)
+    ));
   }
 }

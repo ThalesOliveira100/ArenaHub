@@ -36,6 +36,7 @@ export class DashboardGeral {
   protected readonly dadosConsumo = this.dashboardState.dadosConsumoDoUsuario;
   protected readonly multas = this.dashboardState.todasAsMultas;
   protected readonly multasPendentes = this.dashboardState.multasPendentes;
+  protected readonly valorMultas = this.dashboardState.valorMultasPorQuadra;
 
   constructor() {
     const nome = this.usuarioLogado()!.nome;
@@ -85,8 +86,8 @@ export class DashboardGeral {
     {
       title: 'Multas em aberto',
       value: this.multasPendentes().length,
-      subtitle: 'R$ 150',
-      icon: 'description',
+      subtitle: `R$ ${this.valorMultas().toFixed(2).replace('.', ',')}`,
+    icon: 'description'
     },
   ]);
 

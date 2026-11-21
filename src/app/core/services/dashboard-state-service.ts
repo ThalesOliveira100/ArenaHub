@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { computed, inject, Injectable } from '@angular/core';
 import { AutenticacaoService } from '@core/auth/autenticacao.service';
 import { QuadrasStateService } from './quadras/quadras-state-service';
 import { GradesStateService } from './grades/grades-state-service';
@@ -6,6 +6,9 @@ import { UserStateService } from './user/user-state-service';
 import { ConsumoStateService } from './consumo/consumo-state-service';
 import { EventosStateService } from './eventos/eventos-state-service';
 import { MultasStateService } from './multas/multas-state-service';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { forkJoin, of, switchMap } from 'rxjs';
+import { Multa } from '@core/models/multa.model';
 
 @Injectable({
   providedIn: 'root',
@@ -45,4 +48,13 @@ export class DashboardStateService {
   // Multas
   public readonly todasAsMultas = this.multasState.todasAsMultas;
   public readonly multasPendentes = this.multasState.multasPendentes;
+
+  public readonly valorMultasPorQuadra = toSignal(
+    toObservable(this.usuarioLogado).pipe(
+      switchMap((usuario) =>
+        usuario ? this.multasState.getValorMultasPorQuadra(this.usuarioLogado()!.id) : of(0)
+      )
+    ),
+    { initialValue: 0 }
+  );
 }
